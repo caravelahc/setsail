@@ -1,15 +1,5 @@
 <template>
   <div class="about-section">
-        <div class="wave-1">
-            <svg viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet">
-                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:rgba(255,255,255,1);"></path>
-            </svg>
-        </div>
-        <div class="wave-2">
-            <svg viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet">
-                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:#003B6F;"></path>
-            </svg>
-        </div>
         <div class="steps">
             <div class="step-container">
                 <div class="step-icon"><i class="fas fa-anchor"></i></div>
@@ -42,29 +32,7 @@
 </script>
 
 <style>
-    svg {
-        display: inline-block;
-        margin-bottom: 400px
-    }
-    .wave-1 {
-        display: inline-block;
-        position: relative;
-        width: 100%;
-        vertical-align: middle;
-        overflow: hidden;
-        margin-top: -230px;
-        height: 250px;
-        z-index: 3;
-    }
-    .wave-2 {
-        height: 250px;
-        display: inline-block;
-        position: relative;
-        width: 103%;
-        vertical-align: middle;
-        overflow: hidden;
-        margin-top: -300px;
-    }
+
     div.steps{
         width: 100%;
         display: flex;

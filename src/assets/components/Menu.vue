@@ -1,7 +1,12 @@
 <template>
     <div class="nav">
-        <div class="logo"><img src="../img/logo_white.png" alt=""></div>
-        <a :href="item.url" v-for="item in items">{{item.title}}</a>
+        <div class="logo"><img src="../img/logo_horizontal.png" alt=""></div>
+        <a :href="item.url" v-for="item in items" v-on:mouseover="overEffect($event)" v-on:mouseleave="leaveEffect($event)">
+          <span>
+            {{item.title}}
+          </span>
+          <span class="progress"></span>
+        </a>
     </div>
 </template>
 
@@ -16,6 +21,18 @@ export default {
         {title: "Sobre nós", url: "/sobre"},
         {title: "Contato", url: "/contato"},
       ]
+    }
+  },
+  methods:{
+    overEffect: ev => {
+      let span = ev.target.parentElement.querySelector('span.progress')
+      console.log(span)
+      span.style.width = '100%'
+    },
+    leaveEffect: ev => {
+      let span = ev.target.parentElement.querySelector('span.progress')
+      console.log(span)
+      span.style.width = '0%'
     }
   }
 }
@@ -38,8 +55,22 @@ export default {
         left: 0;
     }
 
+    div.nav > a{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
     div.logo{
-        width: 30%
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div.logo > img{
+      width: 60%
     }
 
     a{
@@ -50,6 +81,14 @@ export default {
     a:hover{
         text-decoration: none !important;
         color: white;
+    }
+
+    span.progress{
+      transition: .25s ease;
+      width: 0%;
+      height: 2px;
+      margin-top: 5px;
+      background: #fff;
     }
 
 </style>
