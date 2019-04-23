@@ -1,15 +1,10 @@
 <template>
   <div class="carousel-container">
     <b-carousel id="carousel-1" v-model="slide" :interval="4000" controls indicators style="text-shadow: 1px 1px 2px #333;" @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
-      <b-carousel-slide img-src="src/assets/img/bg2.jpg" width="1024"></b-carousel-slide>
-      <b-carousel-slide img-src="src/assets/img/carousel1.png" width="1024"></b-carousel-slide>
-      <b-carousel-slide img-src="src/assets/img/carousel2.png" width="1024"></b-carousel-slide>
+      <b-carousel-slide img-src="src/assets/img/carousel3_wave.png" width="1024"></b-carousel-slide>
+      <b-carousel-slide img-src="src/assets/img/carousel1_wave.png" width="1024"></b-carousel-slide>
+      <b-carousel-slide img-src="src/assets/img/carousel2_wave.png" width="1024"></b-carousel-slide>
     </b-carousel>
-    <div class="wave-1">
-        <svg viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet">
-            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:rgba(255,255,255,1);"></path>
-        </svg>
-    </div>
   </div>
 </template>
 
@@ -35,7 +30,7 @@
 <style>
   div.carousel-container{
     width: 100%;
-    height: 40vw;
+    /* height: 40vw; */
     z-index: -1;
   }
 
@@ -70,6 +65,7 @@
   svg {
       display: inline-block;
   }
+
   .wave-1 {
       display: inline-block;
       position: relative;
@@ -79,5 +75,20 @@
       height: 400px;
       top: -350px;
       z-index: 3;
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+      div.carousel-inner{
+          height: 100vh;
+      }
+
+      div.carousel-item{
+          height: 100vh;
+      }
+
+      div.carousel-item > img {
+        height: 100%;
+        width: auto;
+      }
   }
 </style>
