@@ -11,7 +11,7 @@
         </ul>
       </div>
 
-      <div style="position:absolute;top:0;left:0;right:0;overflow:auto;z-index:1;margin-top:30px;max-height:500px" ref="terminalWindow">
+      <div style="overflow:auto;z-index:1;margin-top:30px;max-height:500px" ref="terminalWindow">
         <div class="terminal-window" id="terminalWindow" >
           <span v-if="greeting !== false">
             <p v-if="greeting">{{greeting}}</p>
@@ -59,6 +59,7 @@
     </div>
   </div>
 </template>
+
 <script>
   export default {
     name: 'VueTerminal',

@@ -1,7 +1,7 @@
 <template>
     <div class="nav">
         <div class="logo"><img src="../img/logo_horizontal.png" alt=""></div>
-        <a :href="item.url" v-for="item in items" v-on:mouseover="overEffect($event)" v-on:mouseleave="leaveEffect($event)">
+        <a :href="item.url" :key="item" v-for="item in items" v-on:mouseover="overEffect($event)" v-on:mouseleave="leaveEffect($event)">
           <span>
             {{item.title}}
           </span>
@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss">
     div.nav{
-        width: 100vw;
+        width: 100%;
         height: 8vw;
         color: white;
         background: transparent;

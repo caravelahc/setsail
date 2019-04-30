@@ -11,7 +11,7 @@
         </div>
   </div>
 </template>
-
+:key="step, index" :key="step, index" 
 <script>
 
     function generateTime() {
@@ -48,7 +48,8 @@
                 cat:{
                     description: "Open a file",
                     cat: (pushToList, input)=>{
-                        if (typeof input !== 'string') {
+                        
+                        if (input.includes('cat')) {
                             input = input.split(' ')
                             input.splice(0, 1)
                             input = input[0]
@@ -56,17 +57,14 @@
                         const p = new Promise(resolve =>{
                             switch (input) {
                                 case 'quemsomos.txt':
-                                    document.querySelector('.input-box').focus()
                                     resolve({ type: 'success', label: '', message: 'Criado a partir da iniciativa de alunos da graduação de Ciências da Computação, no ano de 2017, o Caravela HackerClub é uma entidade estudantil que visa a divulgação, conscientização e capacitação para desenvolvimento e uso de software livre, tendo seu espaço físico aberto para pessoas que querem desenvolver e aprender coisas na aréa.' })
                                     break
                                 case 'oquefazemos.txt':
-                                    document.querySelector('.input-box').focus()
                                     resolve({ type: 'success', label: '', message: 'Atualmente, o Caravela promove minicursos e eventos de ensino, buscando levar a computação para outros cursos e espaços dentro da UFSC. Além disso, dentro do nosso espaço físico são desenvolvidos projetos de hardware, trazidos ao Caravela pelos próprios membros.' })
                                     break
                                 case 'join.txt':
                                     resolve({ type: 'success', label: '', message: 'A participação de novas pessoas é muito bem-vinda e incentivada. Venha nos fazer uma visita na sala INE 418. :^)' })
                                 default:
-                                    document.querySelector('.input-box').focus()
                                     resolve({ type: 'success', label: '', message: 'File not found' })
                                     break
                             }
@@ -98,7 +96,7 @@
                     }
                 },
                 defaultTask: {
-                    description: 'this is default task.',
+                    description: 'Runs at boot',
                     defaultTask(pushToList) {
                     let i = 0;
                     const p = new Promise(resolve => {
@@ -165,6 +163,9 @@
             this.a.data().current = ev.target.parentElement.dataset.id
         },
         openFile: function(file){
+            let terminal = document.querySelector('div.terminal')
+            console.log(terminal.offsetTop)
+            window.scrollTo(0, terminal.offsetTop)
             this.$refs.term.handleRun('cat', file)
             this.$refs.term.handleFocus()
         }
@@ -177,6 +178,22 @@
 </script>
 
 <style>
+    *{
+        scroll-behavior: smooth
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.about-section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     div.steps{
         width: 100%;
         display: flex;
@@ -208,7 +225,7 @@
 
     div.about{
         width: 100%;
-        height: 800px;
+        display: flex;
         margin: auto;
         margin-top: 40px;
     }
