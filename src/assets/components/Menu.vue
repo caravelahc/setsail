@@ -12,7 +12,11 @@
         <div class="nav mobile-menu" v-if="mobile">
             <div class="container">
                 <div class="logo"><img src="../img/logo_horizontal.png" alt=""></div>
-                <button v-on:click="toggleMenu()"><i class="fas fa-bars"></i></button>
+                <button v-on:click="toggleMenu()" class="hamburger hamburger--slider">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
             </div>
             
             <div class="drop-menu">
@@ -51,9 +55,15 @@ export default {
         },
         toggleMenu(){
             let menu = document.querySelector('div.drop-menu')
-            
-            if (menu.offsetHeight > 0) menu.style.height = '0vw'
-            else menu.style.height = (this.items.length * 10) + 'vw'            
+            let button = document.querySelector('button.hamburger')
+
+            if (menu.offsetHeight > 0){
+                menu.style.height = '0vw'
+                button.classList.remove('is-active')
+            }else{
+                menu.style.height = (this.items.length * 10) + 'vw'            
+                button.classList.add('is-active')
+            } 
         }
   },
   props: {
@@ -66,6 +76,8 @@ export default {
 </script>
 
 <style lang="scss">
+
+    @import './../../../node_modules/hamburgers/dist/hamburgers.css';
 
     div.desktop-menu{
         width: 100%;
@@ -151,6 +163,10 @@ export default {
                 color: white;
                 font-size: 1.5em;
                 border-radius: 3px;
+
+                .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before{
+                    background: white;
+                }
             }
 
             button:focus{
