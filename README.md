@@ -1,6 +1,7 @@
-# website
+# Caravela Website (setsail)
 
-> Caravela Hackerclub
+> O Caravela HC precisa de um meio visual e único de expor seus projetos em andamento, propostas, apresentação, dentre outras coisas mais. Para isso, um site está sendo desenvolvido para melhorar sua divulgação e alcance.
+> @jptiz
 
 ## Build Setup
 
@@ -14,5 +15,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
