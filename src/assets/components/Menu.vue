@@ -41,25 +41,20 @@ export default {
       }
   },
   methods:{
-      overEffect: ev => {
-          let span = ev.target.parentElement.querySelector('span.progress')
-          console.log(span)
-          span.style.width = '100%'
-      },
-      leaveEffect: ev => {
-          let span = ev.target.parentElement.querySelector('span.progress')
-          console.log(span)
-          span.style.width = '0%'
-      },
-      toggleMenu(){
+        overEffect: ev => {
+            let span = ev.target.parentElement.querySelector('span.progress')
+            span.style.width = '100%'
+        },
+        leaveEffect: ev => {
+            let span = ev.target.parentElement.querySelector('span.progress')
+            span.style.width = '0%'
+        },
+        toggleMenu(){
             let menu = document.querySelector('div.drop-menu')
-            console.log(this.items)      
-            if (menu.offsetHeight > 0) {
-                menu.style.height = '0vw'
-            }else{
-                menu.style.height = (this.items.length * 10) + 'vw'
-            }
-      }
+            
+            if (menu.offsetHeight > 0) menu.style.height = '0vw'
+            else menu.style.height = (this.items.length * 10) + 'vw'            
+        }
   },
   props: {
       mobile: {
@@ -157,9 +152,12 @@ export default {
                 font-size: 1.5em;
                 border-radius: 3px;
             }
+
+            button:focus{
+                outline: none;
+            }
         }
     }
-
 
     a{
         text-decoration: none !important;
