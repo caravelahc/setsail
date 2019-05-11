@@ -8,6 +8,9 @@ import About from './assets/components/About.vue'
 import Terminal from './assets/components/Terminal.vue'
 import Mural from './assets/components/Mural.vue'
 
+import Swal from 'sweetalert2'
+window.Swal = Swal
+
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
 

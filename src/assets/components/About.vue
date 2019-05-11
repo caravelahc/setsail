@@ -164,16 +164,13 @@
         },
         openFile: function(file){
             let terminal = document.querySelector('div.terminal')
-            console.log(terminal.offsetTop)
             window.scrollTo(0, terminal.offsetTop)
             this.$refs.term.handleRun('cat', file)
             this.$refs.term.handleFocus()
         }
     },
     
-    mounted: function(){
-        console.log(this)
-    }
+    mounted: function(){}
   }
 </script>
 

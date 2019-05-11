@@ -14,7 +14,6 @@
 <script>
   export default {
     data: ()=> {
-      console.log(this)
       return {
         slide: 0,
         sliding: null,
