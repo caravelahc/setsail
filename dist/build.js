@@ -7972,7 +7972,8 @@ const mockData = [{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-//
+var _this = this;
+
 //
 //
 //
@@ -7988,14 +7989,20 @@ const mockData = [{
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: () => {
+        console.log(_this);
         return {
-            crew: [{ url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }, { url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG' }]
+            crew: _this.a.methods.getCrew()
         };
     },
     methods: {
         getCrew: async () => {
-            let request = await fetch('http://api.caravela.club');
+            let request = await fetch('http://jvm.life:3000/crew');
+            let response = await request.json();
+            return response;
         }
+    },
+    created: () => {
+        // this.a.methods.getCrew()
     }
 });
 
@@ -32486,9 +32493,9 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Mural_vue__ = __webpack_require__(56);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_79d96f94_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Mural_vue__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_05b2350c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Mural_vue__ = __webpack_require__(414);
 function injectStyle (ssrContext) {
-  __webpack_require__(223)
+  __webpack_require__(412)
 }
 var normalizeComponent = __webpack_require__(8)
 /* script */
@@ -32506,7 +32513,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Mural_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_79d96f94_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Mural_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_05b2350c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Mural_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -32517,20 +32524,219 @@ var Component = normalizeComponent(
 
 
 /***/ }),
-/* 223 */
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 227 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(224);
+var content = __webpack_require__(413);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(7)("6b4c966a", content, true, {});
+var update = __webpack_require__(7)("88273eba", content, true, {});
 
 /***/ }),
-/* 224 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(6)(false);
@@ -32544,26 +32750,14 @@ exports.push([module.i, "section.mural{width:100%;display:flex;align-items:cente
 
 
 /***/ }),
-/* 225 */
+/* 414 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"mural"},[_c('h2',[_vm._v("Nossa tripulação")]),_vm._v(" "),_c('div',{staticClass:"crew"},_vm._l((_vm.crew),function(member){return _c('div',{key:member,staticClass:"member"},[_c('a',{attrs:{"href":member.url}},[_c('img',{attrs:{"src":member.pic,"alt":""}})])])}),0)])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"mural"},[_c('h2',[_vm._v("Nossa tripulação")]),_vm._v(" "),_c('div',{staticClass:"crew"},_vm._l((_vm.crew),function(member){return _c('div',{key:member,staticClass:"member"},[_c('p',[_vm._v(" "+_vm._s(member.github)+"\n            ")])])}),0)])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-/* 226 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 227 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

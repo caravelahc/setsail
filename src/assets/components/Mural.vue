@@ -3,9 +3,7 @@
         <h2>Nossa tripulação</h2>
         <div class="crew">
             <div class="member" v-for="member in crew" :key="member">
-                <a :href="member.url">
-                    <img :src="member.pic" alt="">
-                </a>
+                <p> {{ member.github }} </p>
             </div>
         </div>
     </section>
@@ -14,28 +12,20 @@
 <script>
 export default {
     data: ()=>{
-        return {
-            crew: [
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-                {url: 'https://www.google.com', pic: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG'},
-            ]
+        console.log(this)
+        return { 
+            crew: this.a.methods.getCrew()
         }
     },
     methods: {
         getCrew: async ()=>{
-            let request = await fetch('http://api.caravela.club')
+            let request = await fetch('http://jvm.life:3000/crew')
+            let response = await request.json()
+            return response
         }
+    },
+    created: ()=>{
+        // this.a.methods.getCrew()
     }
 }
 </script>
