@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Caravela Hackerclub</title>
-    <link rel="stylesheet" href="./dist/main.css?fc7ba33f6dc0104ab0fd">
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu|Zilla+Slab" rel="stylesheet"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
@@ -14,7 +14,7 @@
       <section id="about"></section>
       <section id="mural"></section>
     </main>
-    <script src="./dist/build.js?1557600518500&fc7ba33f6dc0104ab0fd"></script>
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
   </body>
   <style>
     body{
