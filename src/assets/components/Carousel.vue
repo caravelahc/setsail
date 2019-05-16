@@ -22,7 +22,6 @@
     methods: {
       onSlideStart(slide) {
         this.sliding = true
-        console.log("Eita porra:" + this.mobile)
       },
       onSlideEnd(slide) {
         this.sliding = false

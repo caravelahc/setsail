@@ -1,5 +1,14 @@
 import Vue from 'vue'
+import p5 from 'p5'
+window.p5 = p5
+
+import Swal from 'sweetalert2'
+window.Swal = Swal
+
 import BootstrapVue from "bootstrap-vue"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap-vue/dist/bootstrap-vue.css"
+Vue.use(BootstrapVue)
 
 // Components
 import Carousel from './assets/components/Carousel.vue'
@@ -7,14 +16,8 @@ import Menu from './assets/components/Menu.vue'
 import About from './assets/components/About.vue'
 import Terminal from './assets/components/Terminal.vue'
 import Mural from './assets/components/Mural.vue'
+import Footer from './assets/components/Footer.vue'
 
-import Swal from 'sweetalert2'
-window.Swal = Swal
-
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap-vue/dist/bootstrap-vue.css"
-
-Vue.use(BootstrapVue)
 Vue.component('vue-terminal', Terminal)
 
 new Vue({
@@ -35,4 +38,9 @@ new Vue({
 new Vue({
   el: '#mural',
   render: h => h(Mural)
+})
+
+new Vue({
+  el: '#footer',
+  render: h => h(Footer)
 })

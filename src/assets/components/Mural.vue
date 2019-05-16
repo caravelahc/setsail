@@ -32,7 +32,6 @@ export default {
             this.crew = []
             for (let i = 0; i < response.data.length; i++) {
                 this.crew.push(response.data[i])
-                console.log(this)
             }
         },
         async join(){
@@ -156,7 +155,7 @@ export default {
         div.container{
             button.join{
                 padding: 10px;
-                background: #191970;
+                background: #003b6f;
                 color: white;
                 border: none;
                 border-radius: 5px;
