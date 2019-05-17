@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import Pac from '../js/Pac.js'
+    import Pacman from '../js/Pacman.sketch'
     export default {
         data(){
             return {
@@ -21,30 +21,8 @@
         },
         methods:{
             createGame(){
-                const sketch = (p)=>{
-                    let pac = new Pac(20, p)
-                    p.setup = function(){
-                        let canvasContent = document.querySelector('div.game')
-                        let elt = p.createCanvas(canvasContent.offsetWidth, canvasContent.offsetHeight)
-                        canvasContent.childNodes.forEach(child => {
-                            child.remove()
-                        })
-                        canvasContent.appendChild(elt.canvas)
-                    }
-    
-                    p.draw = function(){
-                        p.clear()
-                        p.background(255)
-                        pac.show()
-                    }
-    
-                }
-    
-                const game = new p5(sketch)
+                const game = new p5(Pacman)
             }
-        },
-        created(){
-            // this.createGame()
         }
     }
 </script>
