@@ -16,7 +16,6 @@ export default class Pac{
         this.py
         this.deltaX = 0
         this.deltaY = 0
-        console.log(this)
     }
 
     update(){
@@ -64,13 +63,38 @@ export default class Pac{
 
     show(i, j, boardSize){
         this.p5.fill(255,255,0)
-        this.p5.stroke(255,255,0)
+        this.p5.noStroke()
 
-        if (this.um <= 0 || this.um >= 0.28) {
+        if (this.um <= 0 || this.um >= .7) {
             this.mouthSpeed = this.mouthSpeed * (-1) 
         }
-        
-        this.p5.arc(j * boardSize + (boardSize / 4) + this.deltaX , i * boardSize + (boardSize / 4) + this.deltaY, this.size, this.size, 
-            (this.um -= this.mouthSpeed) * this.p5.PI, (this.lm += this.mouthSpeed) * this.p5.PI, this.p5.PIE);
+
+        this.p5.ellipse(
+            j * boardSize + (boardSize / 4) + this.deltaX , 
+            i * boardSize + (boardSize / 4) + this.deltaY, 
+            this.size, 
+            this.size, 
+        )
+
+        this.p5.noStroke()
+        this.p5.fill(0)
+
+        // Normal
+        // this.p5.arc(
+        //     j * boardSize + (boardSize / 4) + this.deltaX , 
+        //     i * boardSize + (boardSize / 4) + this.deltaY, 
+        //     this.size, 
+        //     this.size, 
+        //     (this.lm -= this.mouthSpeed) * this.p5.PI, 
+        //     (this.um += this.mouthSpeed) * this.p5.PI, 
+        //     this.p5.PIE)
+        this.p5.arc(
+            j * boardSize + (boardSize / 4) + this.deltaX , 
+            i * boardSize + (boardSize / 4) + this.deltaY, 
+            this.size, 
+            this.size, 
+            (this.lm -= this.mouthSpeed) * - this.p5.HALF_PI, 
+            (this.um += this.mouthSpeed) * - this.p5.HALF_PI, 
+            this.p5.PIE)
     }
 }

@@ -1,6 +1,7 @@
 <template>
     <section class="mural">
         <h2>Nossa tripulação</h2>
+        <p class="subtitle">Um navio não sai do lugar sozinho, sem nossos marujos estariamos completamente perdidos. O Caravela é um espaço construido e mantido por aqueles que amam o sentimento de participar de uma comunidade assim.</p>
         <div class="crew">
             <div class="member" v-for="member in crew" :key="member">
                 <a :href="member.github" target="_blank">
@@ -126,10 +127,18 @@ export default {
             padding: 40px;
             flex-wrap: wrap;
 
+            @media (max-aspect-ratio: 1/1) {
+                padding: 40px 0;
+            }
+
             div.member{
-            
                 width: 80px;
                 height: 80px;
+                
+                @media (max-aspect-ratio: 1/1) {
+                    width: 25%;
+                    height: auto;
+                }
             
                 a{
             

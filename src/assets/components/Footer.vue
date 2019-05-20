@@ -1,12 +1,19 @@
 <template>
     <footer>
         <div class="social container">
-            <span><i class="fab fa-github"></i></span>
-            <span><i class="fab fa-facebook"></i></span>
-            <span><i class="fab fa-telegram"></i></span>
+            <a target="_blank" href="https://github.com/caravelahc/"><span><i class="fab fa-github"></i></span></a>
+            <a target="_blank" href="https://www.facebook.com/caravelahc/"><span><i class="fab fa-facebook"></i></span></a>
+            <a target="_blank" href="https://t.me/caravelahc"><span><i class="fab fa-telegram"></i></span></a>
+            <a target="_blank" href="https://chat.caravela.club/"><span><i class="fab fa-rocketchat"></i></span></a>
+            <span class="easter_egg"><i class="fas fa-ghost" v-on:click="createGame()"></i></span>
         </div>
         <div class="game">
-            <button class="primary" v-on:click="createGame()">Jogar joguinhos</button>
+            <div class="logo">
+                <img src="../img/logo_white.png" alt="">
+            </div>
+            <div class="quote">
+                {{getQuote()}}
+            </div>
         </div>
     </footer>
 </template>
@@ -21,7 +28,11 @@
         },
         methods:{
             createGame(){
+                document.querySelector('div.game').innerHTML = ''
                 const game = new p5(Pacman)
+            },
+            getQuote(){
+                return '"The free sharing and teaching of open source is incompatible with the notion of the solitary genius."'
             }
         }
     }
@@ -56,11 +67,17 @@
 
         div.game{
             height: 250px;
-            background: #000000;
+            background: #00203b;
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-evenly;
+            color: white;
+            font-family: Zilla Slab;
+
+            div.quote{
+                font-size: 1.7em;
+            }
 
             canvas{
                 position: absolute;
@@ -68,6 +85,10 @@
                 left: 0;
             }
         }
+    }
+
+    span.easter_egg:hover{
+        color: #00203b;
     }
 
     button.primary{
