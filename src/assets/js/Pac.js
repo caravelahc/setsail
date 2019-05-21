@@ -85,8 +85,8 @@ export default class Pac{
             i * boardSize + (boardSize / 4) + this.deltaY, 
             this.size, 
             this.size, 
-            (this.lm -= this.mouthSpeed) * this.p5.PI, 
-            (this.um += this.mouthSpeed) * this.p5.PI, 
+            this.p5.QUARTER_PI * 3, 
+            this.p5.QUARTER_PI, 
             this.p5.PIE)
     }
 }
