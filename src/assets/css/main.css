@@ -3,9 +3,3 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-
-body, html{
-    width: 100%;
-    height: 1000px;
-    background: #ff0000;
-}

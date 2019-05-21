@@ -75,7 +75,8 @@ export default class Board{
                         break
                     case 3:
                         this.p5.noFill()
-                        this.p5.stroke(0, 0, 255)
+                        this.p5.strokeWeight(2)
+                        this.p5.stroke('#003b6f')
                         this.p5.rect(j * this.size, i * this.size, this.size, this.size)
                         this.p5.noStroke()
                         break

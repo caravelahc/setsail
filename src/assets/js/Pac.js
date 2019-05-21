@@ -65,7 +65,7 @@ export default class Pac{
         this.p5.fill(255,255,0)
         this.p5.noStroke()
 
-        if (this.um <= 0 || this.um >= .7) {
+        if (this.um <= 0 || this.um >= .25) {
             this.mouthSpeed = this.mouthSpeed * (-1) 
         }
 
@@ -80,21 +80,13 @@ export default class Pac{
         this.p5.fill(0)
 
         // Normal
-        // this.p5.arc(
-        //     j * boardSize + (boardSize / 4) + this.deltaX , 
-        //     i * boardSize + (boardSize / 4) + this.deltaY, 
-        //     this.size, 
-        //     this.size, 
-        //     (this.lm -= this.mouthSpeed) * this.p5.PI, 
-        //     (this.um += this.mouthSpeed) * this.p5.PI, 
-        //     this.p5.PIE)
         this.p5.arc(
             j * boardSize + (boardSize / 4) + this.deltaX , 
             i * boardSize + (boardSize / 4) + this.deltaY, 
             this.size, 
             this.size, 
-            (this.lm -= this.mouthSpeed) * - this.p5.HALF_PI, 
-            (this.um += this.mouthSpeed) * - this.p5.HALF_PI, 
+            (this.lm -= this.mouthSpeed) * this.p5.PI, 
+            (this.um += this.mouthSpeed) * this.p5.PI, 
             this.p5.PIE)
     }
 }

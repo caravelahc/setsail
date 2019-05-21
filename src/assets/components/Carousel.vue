@@ -37,67 +37,70 @@
 </script>
 
 <style>
-  div.carousel-container{
-    width: 100%;
-    /* height: 40vw; */
-    z-index: -1;
-  }
+    div.carousel-container{
+        width: 100%;
+        z-index: -1;
+    }
 
-  .carousel-control-next,
-  .carousel-control-prev{
-    z-index: 5;
-  }
+    .carousel-control-next,
+    .carousel-control-prev{
+        z-index: 5;
+    }
 
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-      height: 100px;
-      background-size: 100%, 100%;
-      background-image: none;
-      font-family: Zilla Slab;
-      font-weight: 500;
-      z-index: 5;
-  }
-  
-  .carousel-control-next-icon:after
-  {
-      font-size: 4em;
-      content: '}';
-      color: white;
-  }
-  
-  .carousel-control-prev-icon:after {
-      font-size: 4em;
-      content: '{';
-      color: white;
-  }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        height: 100px;
+        background-size: 100%, 100%;
+        background-image: none;
+        font-family: Zilla Slab;
+        font-weight: 500;
+        z-index: 5;
+    }
+    
+    .carousel-control-next-icon:after
+    {
+        font-size: 4em;
+        content: '}';
+        color: white;
+    }
+    
+    .carousel-control-prev-icon:after {
+        font-size: 4em;
+        content: '{';
+        color: white;
+    }
 
-  svg {
-      display: inline-block;
-  }
+    svg {
+        display: inline-block;
+    }
 
-  .wave-1 {
-      display: inline-block;
-      position: relative;
-      width: 100%;
-      vertical-align: middle;
-      overflow: hidden;
-      height: 400px;
-      top: -350px;
-      z-index: 3;
-  }
+    .wave-1 {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        vertical-align: middle;
+        overflow: hidden;
+        height: 400px;
+        top: -350px;
+        z-index: 3;
+    }
 
-  @media (max-aspect-ratio: 1/1) {
-      div.carousel-inner{
-          height: 100vh;
-      }
+    div.carousel-inner:focus, .carousel:focus, .carousel-container:focus, div{
+        outline: none;
+    }
 
-      div.carousel-item{
-          height: 100vh;
-      }
+    @media (max-aspect-ratio: 1/1) {
+        div.carousel-inner{
+            height: 100vh;
+        }
 
-      div.carousel-item > img {
-        height: 100%;
-        width: auto;
-      }
-  }
+        div.carousel-item{
+            height: 100vh;
+        }
+
+        div.carousel-item > img {
+            height: 100%;
+            width: auto;
+        }
+    }
 </style>

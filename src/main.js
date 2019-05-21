@@ -5,6 +5,8 @@ window.p5 = p5
 import Swal from 'sweetalert2'
 window.Swal = Swal
 
+import "./assets/css/main.css"
+
 import BootstrapVue from "bootstrap-vue"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"

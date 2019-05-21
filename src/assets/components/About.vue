@@ -1,7 +1,7 @@
 <template>
   <div class="about-section">
         <div class="steps">
-            <div class="step-container" v-for="step, index in steps" v-on:click="openFile(step.command)" :data-id="index">
+            <div class="step-container" v-bind:key="step" v-for="step in steps" v-on:click="openFile(step.command)" :data-id="step.id">
                 <div class="step-icon"><i :class="step.icon"></i></div>
                 <span class="step-title">{{step.title}}</span>
             </div>
@@ -40,9 +40,9 @@
         return {
             current: 0,
             steps: [
-                {icon: "fas fa-terminal", title:"Quem somos?", command:'quemsomos.txt'},
-                {icon: "fas fa-microchip", title:"O que fazemos?", command: 'oquefazemos.txt'},
-                {icon: "fas fa-door-open ", title:"Como participar?", command: 'join.txt'}
+                {id: 1, icon: "fas fa-terminal", title:"Quem somos?", command:'quemsomos.txt'},
+                {id: 2, icon: "fas fa-microchip", title:"O que fazemos?", command: 'oquefazemos.txt'},
+                {id: 3, icon: "fas fa-door-open ", title:"Como participar?", command: 'join.txt'}
             ],
             taskList: {
                 cat:{
@@ -174,13 +174,13 @@
   }
 </script>
 
-<style>
-    *{
+<style lang="scss">
+
+    * {
         scroll-behavior: smooth
     }
 
     main{
-        display: flex;
         flex-direction: column;
     }
 
@@ -248,6 +248,11 @@
         margin: auto;
         overflow: hidden !important;
         margin-bottom: 40px;
+        min-height: 450px;
+
+        @media (max-aspect-ratio: 1/1) {
+            min-height: unset;    
+        }
     }
 
     div.header + div{
@@ -259,5 +264,4 @@
         width: 60px !important;
         z-index: 60 !important;
     }
-
 </style>

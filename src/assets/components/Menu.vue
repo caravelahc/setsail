@@ -46,12 +46,16 @@ export default {
   },
   methods:{
         overEffect: ev => {
-            let span = ev.target.parentElement.querySelector('span.progress')
-            span.style.width = '100%'
+            if (ev.target.download !== undefined) {   
+                let span = ev.target.querySelector('span.progress')
+                span.style.width = '100%'
+            }
         },
         leaveEffect: ev => {
-            let span = ev.target.parentElement.querySelector('span.progress')
-            span.style.width = '0%'
+            if (ev.target.download !== undefined) {   
+                let span = ev.target.querySelector('span.progress')
+                span.style.width = '0%'
+            }
         },
         toggleMenu(){
             let menu = document.querySelector('div.drop-menu')

@@ -1,7 +1,7 @@
 <template>
     <section class="mural">
         <h2>Nossa tripulação</h2>
-        <p class="subtitle">Um navio não sai do lugar sozinho, sem nossos marujos estariamos completamente perdidos. O Caravela é um espaço construido e mantido por aqueles que amam o sentimento de participar de uma comunidade assim.</p>
+        <p class="subtitle mt-5">Um navio não sai do lugar sozinho, sem nossos marujos estariamos completamente perdidos. O Caravela é um espaço construido e mantido por aqueles que amam o sentimento de participar de uma comunidade assim.</p>
         <div class="crew">
             <div class="member" v-for="member in crew" :key="member">
                 <a :href="member.github" target="_blank">
@@ -122,7 +122,8 @@ export default {
         flex-direction: column;
 
         p.subtitle{
-            text-align: center;
+            text-align: justify;
+            width: 50%;
         }
         
         div.crew{

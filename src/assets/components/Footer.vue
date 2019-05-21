@@ -8,7 +8,7 @@
             <span class="easter_egg"><i class="fas fa-ghost" v-on:click="createGame()"></i></span>
         </div>
         <div class="game">
-            <div class="logo">
+            <div class="logo mb-5">
                 <img src="../img/logo_white.png" alt="">
             </div>
             <div class="quote">
@@ -83,7 +83,7 @@
             @media (max-aspect-ratio: 1/1) {
                 flex-direction: column;
                 height: unset;
-                padding: 30px; 
+                padding: 40px; 
             }
 
             div.quote{
