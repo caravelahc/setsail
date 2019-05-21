@@ -1,5 +1,5 @@
 <template>
-  <div class="about-section">
+  <section class="about-section">
         <div class="steps">
             <div class="step-container" v-bind:key="step" v-for="step in steps" v-on:click="openFile(step.command)" :data-id="step.id">
                 <div class="step-icon"><i :class="step.icon"></i></div>
@@ -9,7 +9,7 @@
         <div class="about">
             <vue-terminal ref="term" :showHelpMessage="false" :showInitialCd="false" :title="'caravela-hc'" :greeting="''" :prompt="'[ user@caravela-hc $ /]'" :task-list="taskList" :command-list="commandList" style="margin:0 auto"></vue-terminal>
         </div>
-  </div>
+  </section>
 </template>
 :key="step, index" :key="step, index" 
 <script>
@@ -184,7 +184,7 @@
         flex-direction: column;
     }
 
-    div.about-section{
+    section.about-section{
         display: flex;
         flex-direction: column;
         align-items: center;
