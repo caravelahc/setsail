@@ -34,7 +34,14 @@
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
     "vue-terminal": "^1.1.0",
-    "vue-terminal-ui": "^0.1.5"
+    "vue-terminal-ui": "^0.1.5",
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.13.8",
+    "@types/pg": "^7.4.14",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "pg": "^7.10.0",
+    "typescript": "^3.4.5"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
