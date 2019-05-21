@@ -56,6 +56,10 @@
             color: white;
             font-size: 2.5em;
 
+            @media (max-aspect-ratio: 1/1) {
+                width: 100%;
+            }
+
             span{
                 transition: .2s ease-in-out;
             }
@@ -66,6 +70,7 @@
         }
 
         div.game{
+
             height: 250px;
             background: #00203b;
             width: 100%;
@@ -74,6 +79,12 @@
             justify-content: space-evenly;
             color: white;
             font-family: Zilla Slab;
+
+            @media (max-aspect-ratio: 1/1) {
+                flex-direction: column;
+                height: unset;
+                padding: 30px; 
+            }
 
             div.quote{
                 font-size: 1.7em;
