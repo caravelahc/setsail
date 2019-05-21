@@ -9,9 +9,28 @@ export default class Board{
 
     getPositions(canvas){
 
-        let positions = []
         let rows = Math.round((canvas.offsetHeight) / this.size)
         let cols = Math.round((canvas.offsetWidth) / this.size)
+
+        let positions = this.setGrid(canvas, rows, cols)
+
+        let pacx = Math.ceil(this.p5.random() * cols)
+        let pacy = Math.ceil(this.p5.random() * rows)
+
+        while (positions[pacy][pacx] == 3) {
+            pacx = Math.ceil(this.p5.random() * cols)
+            pacy = Math.ceil(this.p5.random() * rows)
+        }
+
+        this.pac.px = pacx
+        this.pac.py = pacy
+        positions[pacy][pacx] = 1;
+
+        return positions
+    }
+
+    setGrid(canvas, rows, cols){
+        let positions = []
 
         for (let i = 0; i < rows; i++) {
             positions[i] = []
@@ -23,19 +42,6 @@ export default class Board{
                 }
             }
         }
-        
-
-        let pacx = Math.ceil(this.p5.random() * cols)
-        let pacy = Math.ceil(this.p5.random() * rows)
-        
-        while (positions[pacy][pacx] == 3) {
-            pacx = Math.ceil(this.p5.random() * cols)
-            pacy = Math.ceil(this.p5.random() * rows)
-        }
-
-        this.pac.px = pacx
-        this.pac.py = pacy
-        positions[pacy][pacx] = 1;
 
         return positions
     }
@@ -68,7 +74,7 @@ export default class Board{
                     case 0:
                         this.p5.fill(255, 255, 0)
                         this.p5.ellipseMode(this.p5.CORNER) 
-                        this.p5.ellipse(j * this.size + (this.size / 3), i * this.size + (this.size / 3), this.size / 3)
+                        this.p5.ellipse(j * this.size + (this.size / 2.5), i * this.size + (this.size / 2.5), this.size / 6)
                         break
                     case 1:
                         this.pac.show(i, j, this.size)
