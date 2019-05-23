@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Caravela Hackerclub</title>
-    <link rel="stylesheet" href="">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Zilla+Slab" rel="stylesheet"> 
+    <title>Caravela Hackerclub | Projetos</title>
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Zilla+Slab"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link defer rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js">
+    <link rel="stylesheet" defer href="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js">
   </head>
   <body>
-    <div class="main"></div>
+    <div class="projetos"></div>
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
   </body>
-  <script type="text/javascript" src="./dist/build.js?1558553457505&d68f3379812c8ccac31b"></script>
   <style>
     body{
       overflow-x: hidden;

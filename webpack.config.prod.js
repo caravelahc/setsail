@@ -19,7 +19,6 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: './dist/',
         filename: 'build.js?' + Date.now()
     },
 
@@ -74,8 +73,14 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: false,
             hash: true,
-            template: './src/index.html',
-            filename: '../index.html'
+            template: './src/assets/views/index.html',
+            filename: 'index.html'
+        }),
+        new HtmlWebpackPlugin({
+            inject: false,
+            hash: true,
+            template: './src/assets/views/projetos.html',
+            filename: 'projetos.html'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({

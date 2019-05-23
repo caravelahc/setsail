@@ -20,6 +20,7 @@ import About from './assets/components/About.vue'
 import Terminal from './assets/components/Terminal.vue'
 import Mural from './assets/components/Mural.vue'
 import Footer from './assets/components/Footer.vue'
+import Projetos from './assets/components/Projetos.vue'
 import Main from './assets/components/Main.vue'
 
 Vue.component('vue-carousel', Carousel)
@@ -32,4 +33,9 @@ Vue.component('vue-terminal', Terminal)
 new Vue({
   el: 'div.main',
   render: h => h(Main)
+})
+
+new Vue({
+  el: 'div.projetos',
+  render: h => h(Projetos)
 })

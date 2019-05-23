@@ -5,12 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const Crew_1 = __importDefault(require("./Entities/Crew"));
+const path_1 = __importDefault(require("path"));
 const { Pool } = require('pg');
 const Cors = require('cors');
 const crew = new Crew_1.default(Pool);
 const app = express_1.default();
 app.use(express_1.default.json());
+app.use(express_1.default.static("../dist"));
 app.use(Cors());
+app.get('/', (req, res) => res.sendFile(path_1.default.join(__dirname + '/../dist/index.html')));
+app.get('/projetos', (req, res) => res.sendFile(path_1.default.join(__dirname + '/../dist/projetos.html')));
 // API Interface for Crew entity
 app.post('/crew', (req, res) => crew.create(req, res));
 app.get('/crew/', (req, res) => crew.all(req, res));
