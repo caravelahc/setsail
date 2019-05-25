@@ -1,12 +1,12 @@
 <template>
   <section class="carousel-container">
     <b-carousel id="carousel-1" v-model="slide" :interval="4000" controls indicators style="text-shadow: 1px 1px 2px #333;" @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
-      <b-carousel-slide v-if="!mobile" img-src="http://jvm.life/carousel3_wave.png" width="1024"></b-carousel-slide>
-      <b-carousel-slide v-if="!mobile" img-src="http://jvm.life/carousel1_wave.png" width="1024"></b-carousel-slide>
-      <b-carousel-slide v-if="!mobile" img-src="http://jvm.life/carousel2_wave.png" width="1024"></b-carousel-slide>
-      <b-carousel-slide v-if="mobile" img-src="http://jvm.life/carousel3_mobile_wave.png" width="1024"></b-carousel-slide>
-      <b-carousel-slide v-if="mobile" img-src="http://jvm.life/carousel1_mobile_wave.png" width="1024"></b-carousel-slide>
-      <b-carousel-slide v-if="mobile" img-src="http://jvm.life/carousel2_mobile_wave.png" width="1024"></b-carousel-slide>
+      <b-carousel-slide v-if="!mobile" img-src="http://jvm.life/storage/carousel3_wave.png" width="1024"></b-carousel-slide>
+      <b-carousel-slide v-if="!mobile" img-src="http://jvm.life/storage/carousel1_wave.png" width="1024"></b-carousel-slide>
+      <b-carousel-slide v-if="!mobile" img-src="http://jvm.life/storage/carousel2_wave.png" width="1024"></b-carousel-slide>
+      <b-carousel-slide v-if="mobile" img-src="http://jvm.life/storage/carousel3_mobile_wave.png" width="1024"></b-carousel-slide>
+      <b-carousel-slide v-if="mobile" img-src="http://jvm.life/storage/carousel1_mobile_wave.png" width="1024"></b-carousel-slide>
+      <b-carousel-slide v-if="mobile" img-src="http://jvm.life/storage/carousel2_mobile_wave.png" width="1024"></b-carousel-slide>
     </b-carousel>
   </section>
 </template>
