@@ -20,7 +20,8 @@ import About from './assets/components/About.vue'
 import Terminal from './assets/components/Terminal.vue'
 import Mural from './assets/components/Mural.vue'
 import Footer from './assets/components/Footer.vue'
-import Projetos from './assets/components/Projetos.vue'
+import Projects from './assets/components/Projects.vue'
+import MainProjetos from './assets/components/MainProjetos.vue'
 import Main from './assets/components/Main.vue'
 
 Vue.component('vue-carousel', Carousel)
@@ -29,6 +30,7 @@ Vue.component('vue-footer', Footer)
 Vue.component('vue-about', About)
 Vue.component('vue-mural', Mural)
 Vue.component('vue-terminal', Terminal)
+Vue.component('vue-projects', Projects)
 
 new Vue({
   el: 'div.main',
@@ -37,5 +39,5 @@ new Vue({
 
 new Vue({
   el: 'div.projetos',
-  render: h => h(Projetos)
+  render: h => h(MainProjetos)
 })

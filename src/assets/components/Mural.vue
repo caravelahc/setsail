@@ -124,6 +124,9 @@ export default {
         p.subtitle{
             text-align: justify;
             width: 50%;
+            @media (max-aspect-ratio: 1/1) {
+                width: 90%;
+            }
         }
         
         div.crew{

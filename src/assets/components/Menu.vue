@@ -1,7 +1,7 @@
 <template>
     <nav>
         <div class="nav desktop-menu" v-if="!mobile">
-            <div class="logo"><img src="../img/logo_horizontal.png" alt=""></div>
+            <div class="logo"><img src="http://jvm.life/storage/logo_horizontal.png" alt=""></div>
             <a :href="item.url" :key="item" v-for="item in items" v-on:mouseover="overEffect($event)" v-on:mouseleave="leaveEffect($event)">
                 <span>
                   {{item.title}}
@@ -11,7 +11,7 @@
         </div>
         <div class="nav mobile-menu" v-if="mobile">
             <div class="container">
-                <div class="logo"><img src="../img/logo_horizontal.png" alt=""></div>
+                <div class="logo"><img src="http://jvm.life/storage/logo_horizontal.png" alt=""></div>
                 <button v-on:click="toggleMenu()" class="hamburger hamburger--slider">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
@@ -41,7 +41,8 @@ export default {
             {title: "Eventos", url: "/eventos"},
             {title: "Sobre nós", url: "/sobre"},
             {title: "Contato", url: "/contato"},
-          ]
+          ],
+          offsetMenu: undefined
       }
   },
   methods:{
@@ -65,16 +66,48 @@ export default {
                 menu.style.height = '0vw'
                 button.classList.remove('is-active')
             }else{
-                menu.style.height = (this.items.length * 10) + 'vw'            
+                menu.style.height = (this.items.length * 11) + 'vw'            
                 button.classList.add('is-active')
             } 
+        },
+        scrolling(){
+            if (window.scrollY > 200) {
+                if (this.mobile) {
+                    document.querySelector('.nav').style.height = '20vw'
+                    document.querySelector('.drop-menu').style.background = '#003b6f'
+                }else{
+                    document.querySelector('.nav').style.height = '6vw'
+                }
+                document.querySelector('.nav').style.background = '#003b6f'
+            }else{
+                if (this.mobile) {
+                    document.querySelector('.nav').style.height = '20vw'
+                    document.querySelector('.drop-menu').style.background = this.bgColor
+                }else{
+                    document.querySelector('.nav').style.height = '8vw'
+                }
+                document.querySelector('.nav').style.background = this.bgColor
+            }
         }
   },
   props: {
       mobile: {
           type: Boolean,
           default: window.innerWidth < window.innerHeight
+      },
+      bgColor: {
+          type: String,
+          default: 'transparent'
       }
+  },
+  computed: {
+      offsetMenu: function () {
+          return document.querySelector('.nav').offsetTop
+      }
+  },
+  created(){
+      window.addEventListener('scroll', ()=> this.scrolling())
+      document.querySelector('.nav').style.background = this.bgColor
   }
 }
 </script>
@@ -87,16 +120,12 @@ export default {
         width: 100%;
         height: 8vw;
         color: white;
-        background: transparent;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         z-index: 20;
         font-family: Zilla Slab;
         font-size: 1.3em;
-        position: absolute;
-        top: 0;
-        left: 0;
 
         a {
             display: flex;
@@ -106,14 +135,14 @@ export default {
         }
 
         div.logo{
-            width: 30%;
+            height: 80%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
     
         div.logo > img{
-            width: 60%
+            height: 100%;
         }
     }
 
@@ -123,9 +152,6 @@ export default {
         color: white;
         z-index: 20;
         font-family: Zilla Slab;
-        position: absolute;
-        top: 0;
-        left: 0;
         display: block;
 
         div.drop-menu{
@@ -195,6 +221,13 @@ export default {
       height: 2px;
       margin-top: 5px;
       background: #fff;
+    }
+
+    .nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        transition: .5s ease;
     }
 
 </style>
