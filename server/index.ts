@@ -10,6 +10,7 @@ const app = Express()
 
 app.use(Express.json())
 app.use(Express.static("../src/assets/img"))
+app.use(Express.static("../dist"))
 app.use(Cors())
 
 app.get('/', (req, res)=> res.sendFile(Path.join(__dirname + '/../dist/index.html')))
