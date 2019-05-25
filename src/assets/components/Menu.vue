@@ -1,7 +1,7 @@
 <template>
     <nav>
         <div :style="'background: ' + this.bgColor" class="nav desktop-menu" v-if="!mobile">
-            <div class="logo"><img src="http://jvm.life/storage/logo_horizontal.png" alt=""></div>
+            <div class="logo"><img src="http://jvm.life/logo_horizontal.png" alt=""></div>
             <a :href="item.url" :key="item" v-for="item in items" v-on:mouseover="overEffect($event)" v-on:mouseleave="leaveEffect($event)">
                 <span>
                   {{item.title}}
@@ -11,7 +11,7 @@
         </div>
         <div :style="'background: ' + this.bgColor" class="nav mobile-menu" v-if="mobile">
             <div class="container">
-                <div class="logo"><img src="http://jvm.life/storage/logo_horizontal.png" alt=""></div>
+                <div class="logo"><img src="http://jvm.life/logo_horizontal.png" alt=""></div>
                 <button v-on:click="toggleMenu()" class="hamburger hamburger--slider">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
