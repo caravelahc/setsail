@@ -32,7 +32,7 @@ export default {
     data(){
         return {
             projetos: {},
-            loading = false
+            loading: false
         }
     },
     methods:{
