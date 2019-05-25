@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <div class="nav desktop-menu" v-if="!mobile">
+        <div :style="'background: ' + this.bgColor" class="nav desktop-menu" v-if="!mobile">
             <div class="logo"><img src="http://jvm.life/storage/logo_horizontal.png" alt=""></div>
             <a :href="item.url" :key="item" v-for="item in items" v-on:mouseover="overEffect($event)" v-on:mouseleave="leaveEffect($event)">
                 <span>
@@ -9,7 +9,7 @@
                 <span class="progress"></span>
             </a>
         </div>
-        <div class="nav mobile-menu" v-if="mobile">
+        <div :style="'background: ' + this.bgColor" class="nav mobile-menu" v-if="mobile">
             <div class="container">
                 <div class="logo"><img src="http://jvm.life/storage/logo_horizontal.png" alt=""></div>
                 <button v-on:click="toggleMenu()" class="hamburger hamburger--slider">
@@ -112,7 +112,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
     @import './../../../node_modules/hamburgers/dist/hamburgers.css';
 

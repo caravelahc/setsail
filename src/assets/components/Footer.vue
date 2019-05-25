@@ -110,4 +110,8 @@
         border-radius: 5px;
         border-bottom: 5px solid #0e0e3a;
     }
+
+    a {
+        color: white;
+    }
 </style>
