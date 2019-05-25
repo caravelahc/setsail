@@ -9,7 +9,7 @@ const crew = new Crew(Pool)
 const app = Express()
 
 app.use(Express.json())
-app.use(Express.static("../dist"))
+app.use(Express.static("../src/assets/img"))
 app.use(Cors())
 
 app.get('/', (req, res)=> res.sendFile(Path.join(__dirname + '/../dist/index.html')))
@@ -22,4 +22,4 @@ app.get('/crew/:id', (req, res)=> crew.show(req, res))
 app.put('/crew/:id', (req, res)=> crew.update(req, res))
 app.delete('/crew/:id', (req, res)=> crew.delete(req, res))
 
-app.listen(3000, ()=> console.log('Ta rodando'))
+app.listen(80, ()=> console.log('Ta rodando'))
