@@ -1,6 +1,6 @@
 <template>
     <main>
-        <vue-menu></vue-menu>
+        <vue-menu bgColor="transparent"></vue-menu>
         <vue-carousel></vue-carousel>
         <vue-about></vue-about>
         <vue-mural></vue-mural>
