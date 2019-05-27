@@ -1,26 +1,34 @@
-import Express from 'express'
-import Crew from './Entities/Crew'
 import Path from 'path'
 
-const { Pool } = require('pg')
+// Environment
+require('dotenv').config({path: Path.resolve(process.cwd(), '../.env')})
+
+// Modules
+import Express from 'express'
 const Cors = require('cors')
 
-const crew = new Crew(Pool)
+// Models
+import Crew from './Entities/Crew'
+
+// Declaration
+const crew = new Crew()
 const app = Express()
 
 app.use(Express.json())
 app.use("/storage", Express.static("../src/assets/img"))
 app.use(Express.static("../dist"))
-app.use(Cors())
+
+// Uncomment for allow Cors on all routes
+// app.use(Cors())
 
 app.get('/', (req, res)=> res.sendFile(Path.join(__dirname + '/../dist/index.html')))
 app.get('/projetos', (req, res)=> res.sendFile(Path.join(__dirname + '/../dist/projetos.html')))
 
-// API Interface for Crew entity
+// API for Crew entity
+app.get('/crew/', Cors() ,(req, res)=> crew.all(req, res))
+app.get('/crew/:id', Cors(), (req, res)=> crew.find(req, res))
 app.post('/crew', (req, res)=> crew.create(req, res))
-app.get('/crew/', (req, res)=> crew.all(req, res))
-app.get('/crew/:id', (req, res)=> crew.show(req, res))
 app.put('/crew/:id', (req, res)=> crew.update(req, res))
-app.delete('/crew/:id', (req, res)=> crew.delete(req, res))
+app.delete('/crew/:id', (req, res)=> crew.destroy(req, res))
 
-app.listen(80, ()=> console.log('Ta rodando'))
+app.listen(80, ()=> console.log('Server listening at port 80'))
