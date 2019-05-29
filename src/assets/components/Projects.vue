@@ -20,7 +20,11 @@
             <h2>Carregando</h2>
         </div>
 
-        <div class="projeto" v-for="projeto in projetos" v-if="projeto.status" :key="projeto">
+        <div class="sorry" v-if="sorry">
+            <img src="../img/404.png">
+        </div>
+
+        <div class="projeto" v-for="projeto in projetos" v-if="projeto.status">
             <div class="showcase">
                 <div class="showcase-image">
                     <a target="_blank" :href="projeto.assignee.html_url">
@@ -60,7 +64,8 @@ export default {
             loading: false,
             labels: [],
             activeLabels: [],
-            readme: ''
+            readme: '',
+            sorry: false
         }
     },
     methods:{
@@ -73,10 +78,8 @@ export default {
                 response.data[i].status = true
 
                 if (response.data[i].assignee == null){
-                    console.log('cu')
                     response.data[i].assignee = {}
                     response.data[i].assignee.avatar_url = ''
-                    console.log(response.data[i].assignee.avatar_url)
                 }
                 
                 for (const label of response.data[i].labels) {
@@ -122,10 +125,18 @@ export default {
         },
         search(ev){
             let searchWord = ev.target.value
+            let projetos = 0
             for(let i = 0; i < this.projetos.length; i++){
-                console.log(this.projetos[i].title.includes(searchWord))
-                if (this.projetos[i].title.includes(searchWord)) this.projetos[i].status = true
+                if (this.projetos[i].title.toUpperCase().includes(searchWord.toUpperCase())) {
+                    projetos++
+                    this.projetos[i].status = true
+                } 
                 else this.projetos[i].status = false
+            }
+            if (projetos == 0) {
+                this.sorry = true
+            }else{
+                this.sorry = false
             }
         },
         async getReadme(){
@@ -279,6 +290,8 @@ export default {
 
                 div.input-group{
 
+                    flex-wrap: nowrap;
+
                     @media (max-aspect-ratio: 1/1){
                         display: flex;
                         align-items: center;
@@ -351,6 +364,15 @@ export default {
         padding: 40px;
         h2, h3{
             margin-top: 40px;
+        }
+    }
+
+    div.sorry{
+        padding: 30px;
+
+        img{
+            width: 20vw;
+            height: auto;
         }
     }
 </style>
