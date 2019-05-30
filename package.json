@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/caravelahc/setsail#readme",
   "dependencies": {
-    "@types/cors": "^2.8.5",
     "@types/express": "^4.16.1",
     "@types/node": "^11.13.8",
     "@types/pg": "^7.4.14",
@@ -53,6 +52,7 @@
     "@babel/core": "^7.4.4",
     "@babel/plugin-transform-regenerator": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "@types/cors": "^2.8.5",
     "clean-webpack-plugin": "^2.0.2",
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^2.1.1",
