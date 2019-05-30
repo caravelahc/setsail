@@ -7,9 +7,6 @@ export default class Board{
         this.myp5 = myp5
     }
 
-    SPACE = 0
-    WALL = 3
-
     makeMap(){
         let grid = []
 
@@ -19,9 +16,9 @@ export default class Board{
             
             for (let j = 0; j < this.nCols; j++) {
                 if (Math.random() > 0.8 || this.isEdge(j, i)) {
-                    grid[i][j] = WALL
+                    grid[i][j] = 3
                 } else{
-                    grid[i][j] = SPACE
+                    grid[i][j] = 0
                 }
             }
         }
