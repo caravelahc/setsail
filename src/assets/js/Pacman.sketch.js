@@ -1,33 +1,41 @@
 import Pac from '../js/Pac.js'
 import Board from '../js/Board.js'
+import Game from '../js/Game.js'
 
-export default (p)=>{
+export default (myp5)=>{
+
+    let gridSize = 30
     
-    let pac = new Pac(15, p)
+    let game
     let board
+    let pac
 
-    p.setup = function(){
+    myp5.setup = function(){
 
-        let canvasContent = document.querySelector('div.game')
-        let elt = p.createCanvas(canvasContent.offsetWidth - canvasContent.offsetWidth % 30, canvasContent.offsetHeight - canvasContent.offsetHeight % 30)
-        
-        board = new Board(elt.canvas, p, 30, pac)
-        
-        canvasContent.childNodes.forEach(child => {
+        let divCanvas = document.querySelector('div.game')
+
+        myp5.canvasWidth = divCanvas.offsetWidth
+        myp5.canvasHeight = divCanvas.offsetHeight
+
+        let elt = myp5.createCanvas(myp5.canvasWidth, myp5.canvasHeight)
+
+        board = new Board(gridSize, myp5)
+        pac = new Pac(board, myp5)
+        game = new Game(board, pac)
+
+        divCanvas.childNodes.forEach(child => {
             child.remove()
         })
 
-        window.addEventListener('keypress', (ev)=> pac.keyPressed(ev.key))
-        
-        canvasContent.appendChild(elt.canvas)
+        window.addEventListener('keypress', (ev)=> game.keyPressed(ev.key))
+
+        divCanvas.appendChild(elt.canvas)
     }
 
-    p.draw = function(){
-        p.clear()
-        p.background(0)
-        pac.update()
-        board.update()
-        board.show()
+    myp5.draw = function(){
+        myp5.clear()
+        myp5.background(0)
+        game.showGame()
     }
 
 }
