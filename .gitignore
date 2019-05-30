@@ -3,3 +3,6 @@ dist
 .vscode
 .env
 index.html
+server/Routes/*.js
+server/Entities/*.js
+server/Controllers/*.js
