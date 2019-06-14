@@ -9,11 +9,6 @@
                 </a>
             </div>
         </div>
-        <div class="container d-flex justify-content-center py-5">
-            <button v-on:click="join" class="join">
-                Junte-se!
-            </button>
-        </div>
     </section>
 </template>
 
@@ -35,75 +30,6 @@ export default {
                 this.crew.push(response.data[i])
             }
         },
-        async join(){
-            Swal.fire(
-                {
-                    title: 'Qual seu usuário no Github?',
-                    input: 'text',
-                    inputAttributes: {
-                        autocapitalize: 'off'
-                    },
-                    showCancelButton: true,
-                    confirmButtonText: 'Ahoy!',
-                    cancelButtonText: 'Not ahoy!',
-                    showLoaderOnConfirm: true,
-                    preConfirm: (login) => {
-                        return fetch(`//api.github.com/users/${login}`).then(
-                            response => {
-                                if (!response.ok) {
-                                    throw new Error(response.statusText)
-                                }
-                                return response.json()
-                            }
-                        )
-                        .catch(
-                            error => {
-                                Swal.showValidationMessage(`Deu ruim: ${error}`)
-                            }
-                        )
-                    },
-                    allowOutsideClick: () => !Swal.isLoading()
-                }).then(
-                    (result) => {
-                        if (result.value) {
-                            Swal.fire({
-                                title: `É você ai?`,
-                                imageUrl: result.value.avatar_url,
-                                showCancelButton: true,
-                                confirmButtonText: 'Ahoy!',
-                                cancelButtonText: 'Not ahoy!',
-                                showLoaderOnConfirm: true,
-                                preConfirm: () =>{
-                                    // Campos precisam estar em ordem, isso precisa de um fix futuramente
-                                    return Axios.post('http://jvm.life:3000/crew',
-                                        {
-                                            name: result.value.login,
-                                            github: result.value.html_url,
-                                            pic: result.value.avatar_url,
-                                            description: result.value.bio
-                                        }
-                                    )
-                                }
-                            }).then(
-                                (result)=>{
-                                    this.getCrew()
-                                    if (result.value !== undefined) {
-                                        Swal.fire({
-                                            title: "Bem vindo ao Caravela!",
-                                            type: "success"
-                                        })
-                                    }else{
-                                        Swal.fire({
-                                            title: ":(",
-                                            imageUrl: 'src/assets/img/toobad.jpg'
-                                        })
-                                    }
-                                }
-                            )
-                        }
-                    }
-                )
-        }
     },
     created(){
         this.getCrew(this)
@@ -112,6 +38,24 @@ export default {
 </script>
 
 <style lang='scss'>
+
+    @mixin flex-wrap-fix($flex-basis, $max-viewport-width: 2000px) {
+        flex-grow: 1;
+        flex-basis: $flex-basis;
+        max-width: 100%;
+
+        $multiplier: 1;
+        $current-width: 0px;
+
+        @while $current-width < $max-viewport-width {
+            $current-width: $current-width + $flex-basis;
+            $multiplier: $multiplier + 1;
+
+            @media(min-width: $flex-basis * $multiplier) {
+                max-width: percentage(1/$multiplier);
+            }
+        }
+    }
 
     section.mural{
 
@@ -132,7 +76,7 @@ export default {
         div.crew{
         
             display: flex;
-            padding: 40px;
+            padding: 40px 0;
             flex-wrap: wrap;
 
             @media (max-aspect-ratio: 1/1) {
@@ -140,9 +84,11 @@ export default {
             }
 
             div.member{
+                flex-grow: 1;
                 width: 80px;
-                height: 80px;
-                
+                height: auto;
+                @include flex-wrap-fix(90px);
+
                 @media (max-aspect-ratio: 1/1) {
                     width: 25%;
                     height: auto;
