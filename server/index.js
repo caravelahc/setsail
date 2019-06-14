@@ -5,9 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const portfinder_1 = __importDefault(require("portfinder"));
+const Github_1 = __importDefault(require("./Crons/Github"));
 require('dotenv').config({ path: path_1.default.resolve(__dirname, '../.env') });
 const Crew_1 = __importDefault(require("./Entities/Crew"));
 const crew = new Crew_1.default();
+Github_1.default.imediateRun(crew);
+Github_1.default.run(crew);
 const express_1 = __importDefault(require("express"));
 const app = express_1.default();
 app.use(express_1.default.json());

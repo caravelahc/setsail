@@ -1,10 +1,14 @@
 import Path from 'path'
 import Portfinder, { getPort } from 'portfinder'
+import Crons from './Crons/Github'
 
 require('dotenv').config({path: Path.resolve(__dirname, '../.env')})
 
 import Crew from './Entities/Crew'
 const crew = new Crew()
+
+Crons.imediateRun(crew)
+Crons.run(crew)
 
 import Express from 'express'
 const app = Express()
