@@ -1,0 +1,17 @@
+@import 'variables.scss';
+@import 'animation.scss';
+@import '../../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
+@import 'home.scss';
+@import 'header.scss';
+@import 'mural.scss';
+@import 'footer.scss';
+
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+div#app{
+    overflow-x: hidden;
+}

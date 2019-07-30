@@ -38,7 +38,7 @@
 <script>
 export default {
   name: 'menu',
-  data () {
+  data() {
       return {
           items: [
             {title: "Projetos", url: "/projetos"},
