@@ -1,9 +1,9 @@
 <template>
-    <main>
+    <section class="projetos">
         <caravela-menu :bgColor="'#003b6f'" :scrolledColor="'#003b6f'"></caravela-menu>
         <caravela-projects></caravela-projects>
         <caravela-footer></caravela-footer>
-    </main>
+    </section>
 </template>
 
 <script>

@@ -17,7 +17,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-    data(){
+    data() {
         return {
             state: false,
             items: [
@@ -30,13 +30,13 @@ export default Vue.extend({
         }
     },
     methods: {
-        toggleMenu(){
+        toggleMenu() {
             const hamburger = document.querySelector('.hamburger')
-            if(this.state){
+            if(this.state) {
                 this.$refs.menu.closeMenu()
                 hamburger.classList.remove('is-active')
                 this.state = !this.state
-            }else{
+            } else {
                 this.$refs.menu.openMenu()
                 hamburger.classList.add('is-active')
                 this.state = !this.state

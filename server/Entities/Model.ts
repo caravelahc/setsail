@@ -12,11 +12,11 @@ export default class Model{
         port    : process.env.DB_PORT,
     })
 
-    constructor(table:string|null = null){
+    constructor(table:string|null = null) {
         this.table = table
     }
 
-   async create(req: Request|any, res: Response|any){
+   async create(req: Request|any, res: Response|any) {
         try {
             let queryString:string = 'INSERT INTO ' + this.table
             let fields:string = ' ('
@@ -26,7 +26,7 @@ export default class Model{
     
             for (const key in req.body) {
                 if (req.body.hasOwnProperty(key)) {
-                    if (fields == ' ('){
+                    if (fields == ' (') {
                         fields += key
                         vals += '$' + count
                     } 
@@ -54,7 +54,7 @@ export default class Model{
         }
     }
 
-    async all(req: Request|any, res: Response|any){
+    async all(req: Request|any, res: Response|any) {
         try {
             let resp = await this.pool.query('SELECT * FROM ' + this.table)
             if (resp.rows !== undefined) {
@@ -62,12 +62,12 @@ export default class Model{
             }else{
                 res.json({message: "Can't find any registers"})
             }
-        }catch(error){
+        }catch(error) {
             res.status(400).json(error)   
         }
     }
 
-    async find(req: Request|any, res: Response|any){
+    async find(req: Request|any, res: Response|any) {
         try {
             let resp = await this.pool.query('SELECT * FROM ' + this.table + ' WHERE id = $1', [req.params.id])
             if (resp.rows !== undefined) {
@@ -80,7 +80,7 @@ export default class Model{
         }
     }
 
-    async destroy(req: Request|any, res: Response|any){
+    async destroy(req: Request|any, res: Response|any) {
         try {
             let resp = await this.pool.query('DELETE FROM ' + this.table + ' WHERE id = $1', [req.params.id])
             if (resp.rows !== undefined) {
@@ -93,7 +93,7 @@ export default class Model{
         }
     }
 
-    async update(req: Request|any, res: Response|any){
+    async update(req: Request|any, res: Response|any) {
         try {
             let query = [`UPDATE ${this.table}`]
             let body:Array<any> = []

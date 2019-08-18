@@ -23,7 +23,7 @@ interface EvObject {
 }
 
 export default Vue.extend({
-    data(){
+    data() {
         return {
             scrolled: false,
         }
@@ -47,21 +47,19 @@ export default Vue.extend({
             required: true,
         }
     },
-    mounted(){
-        console.log(this.bgColor)
-        console.log(this.scrolledColor)
+    mounted() {
         const header = document.querySelector('header.caravela-header') as HTMLElement
         header.style.background = this.bgColor
-        if(window.scrollY > 10){
+        if(window.scrollY > 10) {
             header.style.background = this.scrolledColor
         }
         this.attachEvents()
     },
     methods: {
-        attachEvents(){
-            window.addEventListener('scroll', (ev)=>{
+        attachEvents() {
+            window.addEventListener('scroll', (ev)=> {
 
-                if(!this.$data.scrolled && window.scrollY > 10){
+                if(!this.$data.scrolled && window.scrollY > 10) {
                     
                     const header = document.querySelector('header.caravela-header') as HTMLElement
                     const button = document.querySelector('.hamburger') as HTMLElement
@@ -71,8 +69,7 @@ export default Vue.extend({
                     header.style.background = this.$props.scrolledColor
 
                     this.$data.scrolled = true
-                }
-                else if(this.$data.scrolled && window.scrollY < 10){
+                } else if(this.$data.scrolled && window.scrollY < 10) {
                     
                     const header = document.querySelector('header.caravela-header') as HTMLElement
                     const button = document.querySelector('.hamburger') as HTMLElement
@@ -86,11 +83,11 @@ export default Vue.extend({
 
             })
         },
-        hoverEnter(ev: EvObject){
+        hoverEnter(ev: EvObject) {
             const target = ev.target.querySelector('span.inner-bar') as HTMLElement 
             target.style.width = '100%';
         },
-        hoverLeave(ev: EvObject){
+        hoverLeave(ev: EvObject) {
             const target = ev.target.querySelector('span.inner-bar') as HTMLElement 
             target.style.width = '0%';
         }

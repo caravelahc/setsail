@@ -33,11 +33,11 @@ header {
 
         a.item{
             text-decoration: none;
-            font-size: 1.8em;
+            font-size: 1.1em;
 
             span.outter-bar{
                 width: 100%;
-                height: 3px;
+                height: 2px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -72,7 +72,7 @@ header.scrolled {
     }
 }
 
-@media (min-aspect-ratio: 1/1){
+@media (min-aspect-ratio: 1/1) {
     .hamburger{
         display: none !important;
     }
@@ -115,7 +115,7 @@ header.scrolled {
     border: none;
 }
 
-@media (max-aspect-ratio: 1/1){
+@media (max-aspect-ratio: 1/1) {
     div.items{
         display: none !important; 
     }

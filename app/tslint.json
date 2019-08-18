@@ -5,11 +5,13 @@
   ],
   "linterOptions": {
     "exclude": [
-      "node_modules/**"
+      "node_modules/**",
+      "*.json",
+      "**/*.json"
     ]
   },
   "rules": {
-    "quotemark": [true, "single"],
+    "quotemark": false,
     "indent": [true, "spaces", 2],
     "interface-name": false,
     "ordered-imports": false,
@@ -17,6 +19,12 @@
     "no-consecutive-blank-lines": false,
     "semicolon": false,
     "whitespace": false,
-    "trailing-comma": false
+    "trailing-comma": false,
+    "object-literal-shorthand": false,
+    "arrow-parens": false,
+    "max-line-length": false,
+    "no-trailing-whitespace": false,
+    "arrow-return-shorthand": false,
+    "prefer-for-of": false
   }
 }

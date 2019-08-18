@@ -33,6 +33,12 @@ div.step-container{
     flex-direction: column;
 }
 
+span.step-title {
+    @media (max-aspect-ratio: 1/1) {
+        font-size: 0.7em;
+    }
+}
+
 div.step-icon{
     height: 80px;
     width: 80px;
@@ -113,4 +119,15 @@ span.cmd{
 .VueCarousel-navigation-button{
     font-family: Zilla Slab !important;
     color: $primary-color !important;
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.VueCarousel-slide {
+    img{
+        width: 100%;
+    }
 }

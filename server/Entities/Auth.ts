@@ -2,7 +2,7 @@ import Model from "../Entities/Model"
 
 export default class Auth extends Model{
 
-    constructor(){
+    constructor() {
         super('auth')
     }
     

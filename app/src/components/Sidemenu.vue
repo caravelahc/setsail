@@ -15,7 +15,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-    data(){
+    data() {
         return {
             menuState: this.$props.state
         }
@@ -33,17 +33,17 @@ export default Vue.extend({
         }
     },
     methods: {
-        openMenu(){
+        openMenu() {
             const menu = document.querySelector('aside.sidemenu-vue') as HTMLElement
             menu.style.transform = 'translateX(0%)'
             this.$data.menuState = !this.$data.menuState
         },
-        closeMenu(){
+        closeMenu() {
             const menu = document.querySelector('aside.sidemenu-vue') as HTMLElement
             menu.style.transform = 'translateX(-100%)'
             this.$data.menuState = !this.$data.menuState
         },
-        isOpen(){
+        isOpen() {
             return this.$props.state
         }
     }

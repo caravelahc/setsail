@@ -22,15 +22,15 @@
     import p5 from 'p5'
     import Pacman from '@/assets/js/Pacman.sketch'
     export default {
-        data(){
+        data() {
             return {}
         },
         methods:{
-            createGame(){
+            createGame() {
                 document.querySelector('div.game').innerHTML = ''
                 const game = new p5(Pacman)
             },
-            getQuote(){
+            getQuote() {
                 return '"The free sharing and teaching of open source is incompatible with the notion of the solitary genius."'
             }
         }

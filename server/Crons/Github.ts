@@ -1,39 +1,41 @@
-import Crew from "../Entities/Crew"
-import Auth from '../Auth/Github'
+import PostController from "../Controllers/PostController"
+import CrewController from "../Controllers/CrewController";
 
-export default {
-    run(crew:Crew){
+export default class GithubCrons {
+    
+    private crew = new CrewController()
+    private post = new PostController()
+
+    run() {
+        this.fetchPosts(180000)
+        this.fetchPostsNow()
+        this.fetchMembers(180000)
+        this.fetchMembersNow()
+    }
+    
+    fetchPosts(time: number) {
         setInterval(
-            async (crew:Crew)=>{
-                try {
-                    const repos = await Auth.get("orgs/caravelahc/repos")
-                    for (const repo of repos.data) {
-                        const contributors = await Auth.get(repo.contributors_url)
-                        for (const contributor of contributors.data) {
-                            const body = [contributor.login, contributor.html_url, contributor.avatar_url]
-                            crew.upsert(body)
-                        }
-                    }
-                }catch(error) {
-                    console.log(error)   
-                }
+            async ()=> {
+                this.post.fetch()
             },
-            1800000,
-            crew
+            time
         )
-    },
-    async imediateRun(crew:Crew){
-        try {
-            const repos = await Auth.get("orgs/caravelahc/repos")
-            for (const repo of repos.data) {
-                const contributors = await Auth.get(repo.contributors_url)
-                for (const contributor of contributors.data) {
-                    const body = [contributor.login, contributor.html_url, contributor.avatar_url]
-                    crew.upsert(body)
-                }
-            }
-        }catch(error) {
-            console.log(error)   
-        }
+    }
+
+    fetchPostsNow() {
+        this.post.fetch()
+    }
+
+    fetchMembers(time: number) {
+        setInterval(
+            async ()=> {
+                this.crew.fetch()    
+            },
+            time
+        )
+    }
+
+    async fetchMembersNow() {
+        this.crew.fetch()
     }
 }

@@ -135,8 +135,9 @@
     },
     methods: {
       handleFocus() {
-        if(window.scrollY != 0)
+        if(window.scrollY !== 0) {
           this.$refs.inputBox.focus();
+        }
       },
       handleCommand(e) {
         if (e.keyCode !== 13) {
@@ -150,7 +151,7 @@
         } else {
           this.pushToList({ message: `$ \\${this.title} ${this.inputCommand} ` })
         }
-        if (!this.inputCommand) return;
+        if (!this.inputCommand) { return };
         const commandArr = this.inputCommand.split(' ')
         if (commandArr[0] === 'help') {
           this.printHelp(commandArr[1])
@@ -167,8 +168,7 @@
           }
         }
         this.inputCommand = ''
-        console.log(window.scrollY)
-        if(window.scrollY != 0){
+        if(window.scrollY !== 0) {
           this.autoScroll()
         }
       },
@@ -199,7 +199,7 @@
       pushToList(message) {
         this.messageList.push(message)
         setTimeout(this.handleFocus, 10)
-        if(window.scrollY != 0){
+        if(window.scrollY !== 0) {
           this.autoScroll()
         }
       },
@@ -219,7 +219,7 @@
           const command = this.commandList[input] || this.taskList[input]
           this.pushToList({ message: command.description })
         }
-        if(window.scrollY != 0){
+        if(window.scrollY !== 0) {
           this.autoScroll()
         }
       },

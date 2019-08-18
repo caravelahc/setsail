@@ -46,18 +46,18 @@
 
 <script>
 
-const Axios = require('axios')
-const Showdown  = require('showdown')
+import Axios from 'axios'
+import Showdown from 'showdown'
 const Converter = new Showdown.Converter()
 
-function b64DecodeUnicode(str) {
-    return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+const b64DecodeUnicode = (str) => {
+    return decodeURIComponent(Array.prototype.map.call(atob(str), (c) => {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
     }).join(''))
 }
 
 export default {
-    data(){
+    data() {
         return {
             projetos: [],
             loading: false,
@@ -68,15 +68,15 @@ export default {
         }
     },
     methods:{
-        async getProjects(){
+        async getProjects() {
             this.loading = true
-            let response = await Axios.get('https://api.github.com/repos/caravelahc/projetos/issues')
+            const response = await Axios.get('https://api.github.com/repos/caravelahc/projetos/issues')
             this.projetos = []
             for (let i = 0; i < response.data.length; i++) {
                 response.data[i].body = Converter.makeHtml(response.data[i].body)
                 response.data[i].status = true
 
-                if (response.data[i].assignee == null){
+                if (response.data[i].assignee == null) {
                     response.data[i].assignee = {}
                     response.data[i].assignee.avatar_url = ''
                 }
@@ -84,11 +84,11 @@ export default {
                 for (const label of response.data[i].labels) {
                     let aux = 0
                     for (const l of this.labels) {
-                        if (l.name == label.name) {
+                        if (l.name === label.name) {
                             aux ++
                         }
                     }
-                    if (aux == 0){
+                    if (aux === 0) {
                         label.id = this.labels.length
                         label.status = true
                         this.labels.push(label)
@@ -98,52 +98,58 @@ export default {
             }
             this.loading = false
         },
-        filter(ev){
+        filter(ev) {
             if (this.labels[ev.target.dataset.id].status) {
                 this.labels[ev.target.dataset.id].status = !this.labels[ev.target.dataset.id].status
                 ev.target.style.filter = 'grayscale(1)'
-            }else{
+            } else {
                 this.labels[ev.target.dataset.id].status = !this.labels[ev.target.dataset.id].status
                 ev.target.style.filter = 'grayscale(0)'
             }
 
-            for(let i = 0; i < this.projetos.length; i++){
+            for(let i = 0; i < this.projetos.length; i++) {
                 let aux = 0
                 
                 this.activeLabels = this.labels.filter((label)=> label.status)
 
-                for(let j = 0; j < this.projetos[i].labels.length; j++){
+                for(let j = 0; j < this.projetos[i].labels.length; j++) {
                     
-                    for(let k = 0; k < this.activeLabels.length; k++){
-                        if(this.projetos[i].labels[j].name == this.activeLabels[k].name) aux++
+                    for(let k = 0; k < this.activeLabels.length; k++) {
+                        if (this.projetos[i].labels[j].name === this.activeLabels[k].name) {
+                            aux++
+                        }
                     }
                 }
-                if (aux == 0) this.projetos[i].status = false
-                else this.projetos[i].status = true
+                if (aux === 0) {
+                    this.projetos[i].status = false
+                } else {
+                    this.projetos[i].status = true
+                }
             }
         },
-        search(ev){
-            let searchWord = ev.target.value
+        search(ev) {
+            const searchWord = ev.target.value
             let projetos = 0
-            for(let i = 0; i < this.projetos.length; i++){
+            for(let i = 0; i < this.projetos.length; i++) {
                 if (this.projetos[i].title.toUpperCase().includes(searchWord.toUpperCase())) {
                     projetos++
                     this.projetos[i].status = true
-                } 
-                else this.projetos[i].status = false
+                } else {
+                    this.projetos[i].status = false
+                }
             }
-            if (projetos == 0) {
+            if (projetos === 0) {
                 this.sorry = true
-            }else{
+            } else {
                 this.sorry = false
             }
         },
-        async getReadme(){
-            let request = await Axios.get("https://api.github.com/repos/caravelahc/projetos/readme")
+        async getReadme() {
+            const request = await Axios.get("https://api.github.com/repos/caravelahc/projetos/readme")
             this.readme = await Converter.makeHtml(b64DecodeUnicode(request.data.content))
         }
     },
-    created(){
+    created() {
         this.getProjects()
         this.getReadme()
     }
@@ -225,7 +231,7 @@ export default {
         div.description{
             width: 70%;
 
-            @media (max-aspect-ratio: 1/1){
+            @media (max-aspect-ratio: 1/1) {
                 width: 100%;
             }
 
@@ -260,7 +266,7 @@ export default {
             align-items: center;
             justify-content: center;
 
-            @media (max-aspect-ratio: 1/1){
+            @media (max-aspect-ratio: 1/1) {
                 width: 80%;
             }
         }
@@ -276,7 +282,7 @@ export default {
             background-position: center;
             padding: 100px;
 
-            @media (max-aspect-ratio: 1/1){
+            @media (max-aspect-ratio: 1/1) {
                 padding: 30px;
             }
 
@@ -286,7 +292,7 @@ export default {
                 justify-content: space-around;
                 flex-direction: row;
 
-                @media (max-aspect-ratio: 1/1){
+                @media (max-aspect-ratio: 1/1) {
                     width: 90%;
                     flex-direction: column;
                 
@@ -303,7 +309,7 @@ export default {
                     margin-bottom: 0px !important;
                     margin-right: 10px;
 
-                    @media (max-aspect-ratio: 1/1){
+                    @media (max-aspect-ratio: 1/1) {
                         margin-bottom: 8px;
                         display: flex;
                         align-items: center;

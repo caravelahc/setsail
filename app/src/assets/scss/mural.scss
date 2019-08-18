@@ -24,6 +24,11 @@ section.mural{
     justify-content: center;
     flex-direction: column;
 
+    h2 {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
     p.subtitle{
         text-align: justify;
         width: 50%;

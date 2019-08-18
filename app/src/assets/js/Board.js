@@ -1,12 +1,12 @@
 export default class Board{
-    constructor(canvas, render, size, pac){
+    constructor(canvas, render, size, pac) {
         this.p5 = render
         this.size = size
         this.pac = pac
         this.maze = this.makeMaze(canvas)
     }
 
-    makeMaze(canvas){
+    makeMaze(canvas) {
 
         let nRows = Math.round((canvas.offsetHeight) / this.size)
         let nCols = Math.round((canvas.offsetWidth) / this.size)
@@ -18,7 +18,7 @@ export default class Board{
         return maze
     }
 
-    setPacPosition(maze){
+    setPacPosition(maze) {
         let nRows = maze.length - 1
         let nCols = maze[0].length - 1
 
@@ -36,7 +36,7 @@ export default class Board{
         maze[pacy][pacx] = 1;
     }
 
-    update(){
+    update() {
         this.checkNext()
 
         if (this.pac.oldy != this.pac.y || this.pac.oldx != this.pac.x) {
@@ -50,11 +50,11 @@ export default class Board{
         }
     }
 
-    checkNext(){
+    checkNext() {
         if (this.invalidNextMove()) this.pac.brakes() 
     }
 
-    show(){
+    show() {
         for (let i = 0; i < this.maze.length; i++) {
             for (let j = 0; j < this.maze[i].length; j++) {
                 switch (this.maze[i][j]) {
@@ -72,7 +72,7 @@ export default class Board{
         }
     }
 
-    makeGrid(canvas, rows, cols){
+    makeGrid(canvas, rows, cols) {
         let grid = []
 
         for (let i = 0; i < rows; i++) {
@@ -89,13 +89,13 @@ export default class Board{
         return grid
     }
 
-    drawFood(x, y){
+    drawFood(x, y) {
         this.p5.fill(255, 255, 0)
         this.p5.ellipseMode(this.p5.CORNER) 
         this.p5.ellipse(x * this.size + (this.size / 2.5), y * this.size + (this.size / 2.5), this.size / 6)
     }
 
-    drawWall(x, y){
+    drawWall(x, y) {
         this.p5.noFill()
         this.p5.strokeWeight(2)
         this.p5.stroke('#003b6f')
@@ -103,43 +103,43 @@ export default class Board{
         this.p5.noStroke()
     }
 
-    validPacPosition(maze, x, y){
+    validPacPosition(maze, x, y) {
         return maze[y][x] != 3
     }
 
-    invalidNextMove(){
+    invalidNextMove() {
         return (this.movingRight() && this.invalidRightPosition()) || (this.movingLeft() && this.invalidLeftPosition()) || (this.movingDown() && this.invalidDownPosition()) || (this.movingUp() && this.invalidUpPosition())
     }
 
-    movingRight(){
+    movingRight() {
         return this.pac.xspeed > 0
     }
     
-    movingLeft(){
+    movingLeft() {
         return this.pac.xspeed < 0
     }
 
-    movingDown(){
+    movingDown() {
         return this.pac.yspeed > 0
     }
 
-    movingUp(){
+    movingUp() {
         return this.pac.yspeed < 0
     }
 
-    invalidRightPosition(){
+    invalidRightPosition() {
         return this.maze[this.pac.py][this.pac.px + 1] == undefined || this.maze[this.pac.py][this.pac.px + 1] == 3
     }
 
-    invalidLeftPosition(){
+    invalidLeftPosition() {
         return this.maze[this.pac.py][this.pac.px - 1] == undefined || this.maze[this.pac.py][this.pac.px - 1] == 3
     }
 
-    invalidDownPosition(){
+    invalidDownPosition() {
         return this.maze[this.pac.py + 1][this.pac.px] == undefined || this.maze[this.pac.py + 1][this.pac.px] == 3
     }
 
-    invalidUpPosition(){
+    invalidUpPosition() {
         return this.maze[this.pac.py - 1][this.pac.px] == undefined || this.maze[this.pac.py - 1][this.pac.px] == 3
     }
 }

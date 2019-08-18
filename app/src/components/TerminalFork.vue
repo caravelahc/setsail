@@ -38,7 +38,7 @@ const mockData = [
 ]
 
 export default Vue.extend({
-    data(){
+    data() {
         return {
             current: 0,
             steps: [
@@ -49,14 +49,14 @@ export default Vue.extend({
             taskList: {
                 cat:{
                     description: "Open a file",
-                    cat: (pushToList, input)=>{
+                    cat: (pushToList, input)=> {
                         
                         if (input.includes('cat')) {
                             input = input.split(' ')
                             input.splice(0, 1)
                             input = input[0]
                         }
-                        const p = new Promise(resolve =>{
+                        const p = new Promise(resolve => {
                             switch (input) {
                                 case 'quemsomos.txt':
                                     resolve({ type: 'success', label: '', message: 'Criado a partir da iniciativa de alunos da graduação de Ciências da Computação, no ano de 2017, o Caravela HackerClub é uma entidade estudantil que visa a divulgação, conscientização e capacitação para desenvolvimento e uso de software livre, tendo seu espaço físico aberto para pessoas que querem desenvolver e aprender coisas na aréa.' })
@@ -77,8 +77,8 @@ export default Vue.extend({
                 },
                 ls:{
                     description: 'List files',
-                    ls(pushToList){
-                        const p = new Promise(resolve =>{
+                    ls(pushToList) {
+                        const p = new Promise(resolve => {
                             pushToList({ time: '', label: 'Files', type: 'info', message: 'quemsomos.txt \t oquefazemos.txt \t join.txt' });
                             resolve({ type: 'success', label: '', message: '' })
                         })
@@ -137,12 +137,12 @@ export default Vue.extend({
                 },
                 locate: {
                     description: "MUAHAHA",
-                    locate: async (pushToList) =>{
+                    locate: async (pushToList) => {
                         let request = await fetch('https://api.ipify.org')
                         let response = await request.text()
                         request = await fetch('https://geo.ipify.org/api/v1?apiKey=at_GKhIci3hvXUpnAkRVoWaiccKewy2v&ipAddress='+response)
                         response = await request.json()
-                        const p = new Promise((resolve, reject)=>{
+                        const p = new Promise((resolve, reject)=> {
                             resolve({ type: 'success', label: 'Gotcha!', message: "IPv4: "+ response.ip+ " "+ response.location.country + ", " + response.location.region+ ", " + response.location.city })
                         })
                         return p
@@ -163,7 +163,7 @@ export default Vue.extend({
         stepState: ev => {
             this.a.data().current = ev.target.parentElement.dataset.id
         },
-        openFile: function(file){
+        openFile: function(file) {
             const terminal = document.querySelector('div.terminal')
             window.scrollTo(0, terminal.offsetTop)
             this.$refs.term.handleRun('cat', file)

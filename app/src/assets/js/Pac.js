@@ -1,6 +1,6 @@
 export default class Pac{
     
-    constructor(size, render){
+    constructor(size, render) {
         this.size = size
         this.p5 = render
         this.upperMouth = 1.75
@@ -19,7 +19,7 @@ export default class Pac{
         this.direction = 0
     }
 
-    update(){
+    update() {
         this.deltaX += this.xspeed
         this.deltaY += this.yspeed
 
@@ -62,7 +62,7 @@ export default class Pac{
 
     }
 
-    show(i, j, boardSize){
+    show(i, j, boardSize) {
 
         if (this.upperMouth < 1.75 || this.upperMouth >= 2) {
             this.mouthSpeed *= -1 
@@ -83,8 +83,8 @@ export default class Pac{
         )
     }
 
-    keyPressed(key){
-        switch (key){
+    keyPressed(key) {
+        switch (key) {
             case 'w':
                 if (this.notMoving()) {
                     this.yspeed = -2
@@ -124,32 +124,32 @@ export default class Pac{
         }
     }
 
-    brakes(){
+    brakes() {
         this.xspeed = 0
         this.yspeed = 0
     }
 
-    notMoving(){
+    notMoving() {
         return this.xspeed + this.yspeed == 0
     }
 
-    rotateDown(){
+    rotateDown() {
         this.rotate(this.p5.HALF_PI)
     }
 
-    rotateUp(){
+    rotateUp() {
         this.rotate(-this.p5.HALF_PI)
     }
 
-    rotateLeft(){
+    rotateLeft() {
         this.rotate(this.p5.PI)
     }
 
-    rotateRight(){
+    rotateRight() {
         this.rotate(0)
     }
 
-    rotate(radAngle){
+    rotate(radAngle) {
         this.direction = radAngle;
     }
 }

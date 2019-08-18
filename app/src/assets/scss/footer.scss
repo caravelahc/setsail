@@ -32,6 +32,7 @@ footer {
 
         height: 250px;
         background: #00203b;
+        padding: 40px;
         width: 100%;
         display: flex;
         align-items: center;
@@ -47,7 +48,8 @@ footer {
         }
 
         div.quote{
-            font-size: 1.7em;
+            font-size: 1.2em;
+            padding: 30px;
         }
 
         canvas{
@@ -58,7 +60,7 @@ footer {
     }
 }
 
-span.easter_egg:hover{
+span:hover{
     color: #00203b;
 }
 
