@@ -83,6 +83,7 @@ header.scrolled {
 }
 
 .VueCarousel{
+    margin-top: 15vh;
     width: 100vw !important;
 
     .VueCarousel-wrapper{
@@ -93,6 +94,30 @@ header.scrolled {
         
             .VueCarousel-slide{
                 width: 100% !important;
+                position: relative;
+
+                button.more {
+                    width: 10%;
+                    background: #003b6f;
+                    border-radius: 5px;
+                    border: 2px solid white;
+                    padding: 15px;
+                    color: white;
+                    position: absolute;
+                    bottom: 0;
+                    left: 45%;
+                    cursor: pointer;
+                    transition: .25s ease;
+
+                    @media (max-aspect-ratio: 1/1) {
+                        width: 50%;
+                        left: 25%;
+                    }
+                }
+
+                button.more:hover {
+                    filter: brightness(1.1)
+                }
             }
         }
     }

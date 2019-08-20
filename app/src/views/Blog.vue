@@ -1,7 +1,6 @@
 <template>
     <section class="blog">
-        <caravela-menu :bgColor="'#003b6f'" :scrolledColor="'#003b6f'"></caravela-menu>
-        <caravela-article-list></caravela-article-list>    
+        <caravela-article-list></caravela-article-list>
     </section>    
 </template>
 

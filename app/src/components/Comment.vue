@@ -23,9 +23,6 @@ export default Vue.extend({
             type: Object,
             default: {}
         }
-    },
-    mounted() {
-        console.log(this)
     }
 })
 

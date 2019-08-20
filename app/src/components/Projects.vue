@@ -19,10 +19,6 @@
             <h2>Carregando</h2>
         </div>
 
-        <div class="sorry" v-if="sorry">
-            <img src="./../assets/img/404.png">
-        </div>
-
         <div class="projeto" v-for="projeto in projetos" :key="projeto.title" v-if="projeto.status">
             <div class="showcase">
                 <div class="showcase-image">
@@ -78,7 +74,7 @@ export default {
 
                 if (response.data[i].assignee == null) {
                     response.data[i].assignee = {}
-                    response.data[i].assignee.avatar_url = ''
+                    response.data[i].assignee.avatar_url = './../img/icon.png'
                 }
                 
                 for (const label of response.data[i].labels) {
@@ -219,11 +215,18 @@ export default {
                         height: 80vw;
                     }
 
-                    img{
+                    a {
                         width: 100%;
-                        height: auto;
-                        margin: 0 !important;
+                        height: 100%;
+                        margin-bottom: 0 !important;
+
+                        img{
+                            width: auto;
+                            height: 100%;
+                            margin: 0 !important;
+                        }
                     }
+
                 }
             }
         }

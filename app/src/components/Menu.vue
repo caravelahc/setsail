@@ -8,7 +8,7 @@
             </span>
         </button>
 
-        <caravela-header :imgSrc="'./img/logo_horizontal.png'" :items="items" :bgColor="backgroundColor"></caravela-header>
+        <caravela-header :imgSrc="'./../img/logo_horizontal.png'" :items="items" :bgColor="backgroundColor"></caravela-header>
     </aside>
 </template>
 
@@ -23,7 +23,6 @@ export default Vue.extend({
             items: [
                 { title: 'Início', url: '/', icon: 'fas fa-project-diagram' },
                 { title: 'Projetos', url: '/projetos', icon: 'fas fa-project-diagram' },
-                { title: 'Eventos', url: '/eventos', icon: 'fas fa-calendar-week' },
                 { title: 'Blog', url: '/blog', icon: 'fas fa-newspaper' },
             ],
             backgroundColor: this.$props.bgColor

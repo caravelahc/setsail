@@ -9,7 +9,7 @@
         </div>
         <div class="game">
             <div class="logo mb-5">
-                <img :src="'./img/logo_white.png'">
+                <img :src="'./../img/logo_white.png'">
             </div>
             <div class="quote">
                 {{getQuote()}}

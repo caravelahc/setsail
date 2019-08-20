@@ -39,8 +39,10 @@
     "chai": "^4.1.2",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
+    "stats-webpack-plugin": "^0.7.0",
     "typescript": "^3.4.3",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "webpack-cli": "^3.3.7"
   },
   "postcss": {
     "plugins": {

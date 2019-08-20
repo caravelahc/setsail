@@ -1,6 +1,15 @@
 <template>
     <div class="article-list">
-        <router-link v-for="article in articles" :key="article.url" :to="'/article/' + article.id">
+        <div class="loading" v-if="loading">
+            <img src="./../assets/img/loading-boat.gif">
+            <h2>Carregando</h2>
+        </div>
+
+        <div class="error" v-if="sorry">
+            <img src="./../assets/img/fudeu.jpg">
+        </div>
+
+        <router-link v-if="!loading" v-for="article in articles" :key="article.url" :to="'/article/' + article.id">
             <article>
                 <div class="cover">
                     <img :src="article.cover || caravela.cover">
@@ -30,7 +39,9 @@ interface ArticleListData {
     ],
     caravela: {
         cover: string
-    }
+    },
+    loading: boolean,
+    sorry: boolean
 }
 
 export default Vue.extend({
@@ -49,16 +60,27 @@ export default Vue.extend({
             ],
             caravela: {
                 cover: ''
-            }
+            },
+            loading: false,
+            sorry: false
         } 
         return auxData
     },
     methods: {
         async getArticles() {
-            const request = await Axios.get('http://localhost:3000/posts')
-            this.articles = await request.data
-            for (const article of this.articles) {
-                article.content = atob(article.content)
+            try {
+                this.loading = true
+                const request = await Axios.get('http://localhost:3000/posts')
+                this.articles = await request.data
+                for (const article of this.articles) {
+                    article.content = atob(article.content)
+                }
+                this.loading = false
+                this.sorry = false
+            } catch (error) {
+                this.loading = false
+                this.sorry = true
+                setTimeout(this.getArticles, 3000)
             }
         }
     },
