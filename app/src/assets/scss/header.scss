@@ -1,0 +1,151 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $not-so-top-layer;
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: .25s ease;
+    padding-left: 15vh;
+    background: $primary-color;
+    
+    div.logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+            width: auto;
+            height: 80%;
+            transition: .25s ease;
+        }
+    }
+
+    div.items {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        a.item{
+            text-decoration: none;
+            font-size: 1.1em;
+
+            span.outter-bar{
+                width: 100%;
+                height: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                span.inner-bar{
+                    width: 0%;
+                    height: 100%;
+                    border-radius: 2px;
+                    background-color: #fff;
+                    transition: .25s ease;
+                }
+            }
+        }
+    }
+}
+
+header.scrolled {
+    height: 12vh;
+}
+
+.hamburger{
+    z-index: $top-layer;
+    position: fixed;
+    top: 5vh;
+    left: 5vh;
+    transition: .25s ease;
+    padding: 0 !important;
+    height: 5vh;
+    
+    .hamburger-box{
+        height: 5vh !important;
+    }
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .hamburger{
+        display: none !important;
+    }
+}
+
+.hamburger-scrolled{
+    top: 3.5vh;
+}
+
+.VueCarousel{
+    margin-top: 15vh;
+    width: 100vw !important;
+
+    .VueCarousel-wrapper{
+        width: 100% !important;
+
+        .VueCarousel-inner{
+            width: 100% !important;
+        
+            .VueCarousel-slide{
+                width: 100% !important;
+                position: relative;
+
+                button.more {
+                    width: 10%;
+                    background: #003b6f;
+                    border-radius: 5px;
+                    border: 2px solid white;
+                    padding: 15px;
+                    color: white;
+                    position: absolute;
+                    bottom: 0;
+                    left: 45%;
+                    cursor: pointer;
+                    transition: .25s ease;
+
+                    @media (max-aspect-ratio: 1/1) {
+                        width: 50%;
+                        left: 25%;
+                    }
+                }
+
+                button.more:hover {
+                    filter: brightness(1.1)
+                }
+            }
+        }
+    }
+}
+
+.VueCarousel-navigation-next{
+    transform: translateX(-100%) !important;
+    color: white !important;
+    font-size: 3em;
+}
+
+.VueCarousel-navigation-prev{
+    transform: translateX(100%) !important;
+    color: white !important;
+    font-size: 3em;
+}
+
+.VueCarousel-navigation-button:focus{
+    outline: none;
+    border: none;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    div.items{
+        display: none !important; 
+    }
+    
+    header{
+        padding-left: 10vh !important;
+    }
+}

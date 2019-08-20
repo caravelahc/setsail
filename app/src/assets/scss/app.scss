@@ -1,0 +1,23 @@
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Zilla+Slab&display=swap');
+@import 'animation.scss';
+@import '../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
+@import 'home.scss';
+@import 'header.scss';
+@import 'mural.scss';
+@import 'footer.scss';
+@import 'blog.scss';
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Ubuntu;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: Zilla Slab;
+}
+
+div#app{
+    overflow-x: hidden;
+}

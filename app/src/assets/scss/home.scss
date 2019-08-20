@@ -1,0 +1,133 @@
+* {
+    scroll-behavior: smooth;
+    font-family: Zilla Slab;
+}
+
+main{
+    flex-direction: column;
+}
+
+section.about-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.steps{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: Ubuntu;
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+div.step-container{
+    height: 120px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+span.step-title {
+    @media (max-aspect-ratio: 1/1) {
+        font-size: 0.7em;
+    }
+}
+
+div.step-icon{
+    height: 80px;
+    width: 80px;
+    background: #003B6F;
+    color: white;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    box-shadow: 2px 2px 2px rgba(0,0,0, 0.3);
+}
+
+div.about{
+    width: 100%;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    div.about{
+        width: 100%;
+    }      
+}
+
+div.header{
+    width: 90%;
+    margin: auto;
+    background: #171a27c7 !important;
+}
+
+div.header > ul.shell-dots{
+    display: none !important;
+}
+
+div#terminalWindow{
+    width: 90%;
+    margin: auto;
+    overflow: hidden !important;
+    margin-bottom: 40px;
+    min-height: 450px;
+
+    p{
+        margin-bottom: 30px;
+
+        span.info, span.system, span.warning, span.success, span.error{
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        span.info:first-child, span.system:first-child, span.warning:first-child, span.success:first-child, span.error:first-child{
+            margin-left: 0px;
+        }
+    }
+
+    @media (max-aspect-ratio: 1/1) {
+        min-height: unset;    
+    }
+}
+
+div.header + div{
+    overflow: hidden !important;
+}
+
+.input-box:focus{
+    background: red !important;
+    width: 60px !important;
+    z-index: 60 !important;
+}
+
+span.cmd{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+.VueCarousel-navigation-button{
+    font-family: Zilla Slab !important;
+    color: $primary-color !important;
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.VueCarousel-slide {
+    img{
+        width: 100%;
+    }
+}
