@@ -5,12 +5,16 @@ import Crons from './Crons/Github'
 require('dotenv').config({path: Path.resolve(__dirname, '../.env')})
 
 import Crew from './Entities/Crew'
+import Posts from './Entities/Posts'
+import Images from './Entities/Images'
+import Events from './Entities/Events'
 import Express from 'express'
-import Posts from './Entities/Posts';
 
 const crew = new Crew()
 const posts = new Posts()
 const crons = new Crons()
+const images = new Images()
+const events = new Events()
 const app = Express()
 
 crons.run()
@@ -18,7 +22,7 @@ app.use(Express.json())
 app.use("/storage", Express.static("../src/assets/img"))
 app.use("/", Express.static("../dist"))
 
-require("./Routes/api")(app, crew, posts)
+require("./Routes/api")(app, crew, posts, images, events)
 require("./Routes/web")(app)
 
 if (process.env.MODE === 'production') {
