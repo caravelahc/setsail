@@ -28,3 +28,12 @@ CREATE TABLE IF NOT EXISTS events (
     description TEXT NOT NULL,
     cover TEXT
 )
+
+CREATE TABLE IF NOT EXISTS images (
+    id SERIAL PRIMARY KEY,
+    url TEXT NOT NULL,
+    link TEXT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    active BOOLEAN NOT NULL DEFAULT FALSE,
+    mobile BOOLEAN NOT NULL DEFAULT FALSE
+)
