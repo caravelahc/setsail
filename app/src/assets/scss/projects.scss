@@ -1,0 +1,72 @@
+ul.projects {
+    padding: 0;
+}
+
+ul.paginate-links {
+    display: flex;
+    list-style: none;
+    border-radius: 6px;
+    padding: 0;
+    margin-bottom: 40px;
+    max-width: 80vw;
+    flex-wrap: wrap;
+}
+
+ul.paginate-links > li {
+    display: flex;
+    flex-grow: 1;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: .25s ease;
+        border-top: 1px solid #003b6f;
+        border-left: 1px solid #003b6f;
+        border-bottom: 1px solid #003b6f;
+        border-right: 1px solid #003b6f;
+    }
+    
+    
+    a:hover {
+        background: #003b6f;
+        color: white !important;
+    }
+}
+
+ul.paginate-links > li:first-child {
+    a:first-child {
+        border-left: 1px solid #003b6f;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+}
+
+ul.paginate-links > li:last-child {
+    a:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+}
+
+ul.paginate-links > li.active {
+    background: #003b6f;
+
+    a {
+        color: white !important;
+    }
+}
+
+ul.paginate-links > li.left-arrow > a, ul.paginate-links > li.right-arrow > a {
+    background: #00203b;
+    color: white !important;
+}

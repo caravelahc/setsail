@@ -22,6 +22,7 @@
     "vue": "^2.6.10",
     "vue-burger-menu": "^2.0.2",
     "vue-carousel": "^0.18.0",
+    "vue-paginate": "^3.6.0",
     "vue-router": "^3.0.3",
     "vuejs-paginate": "^2.1.0",
     "vuex": "^3.0.1"
