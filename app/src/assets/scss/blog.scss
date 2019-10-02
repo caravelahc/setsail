@@ -1,3 +1,16 @@
+ul.articles:first-child {
+    padding: 0;
+    margin-bottom: 40px;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly
+}
+
+ul.articles > li > a{
+    color: black;
+}
+
 div.article-list{
     margin-top: 15vh;
     padding: 20px;
@@ -5,6 +18,7 @@ div.article-list{
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    flex-direction: column;
     
     div.loading {
         width: 30%;
