@@ -5,6 +5,7 @@
             <a target="_blank" href="https://www.facebook.com/caravelahc/"><span><i class="fab fa-facebook"></i></span></a>
             <a target="_blank" href="https://t.me/caravelahc"><span><i class="fab fa-telegram"></i></span></a>
             <a target="_blank" href="https://chat.caravela.club/"><span><i class="fab fa-rocketchat"></i></span></a>
+            <a target="_blank" href=" https://calendar.google.com/calendar?cid=c3E1b25wNXQwcWxubTZtMnI4cmhwcm9wMXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"><span><i class="fas fa-calendar-day"></i></span></a>
             <span class="easter_egg"><i class="fas fa-ghost" v-on:click="createGame()"></i></span>
         </div>
         <div class="game">
