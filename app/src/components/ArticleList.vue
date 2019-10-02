@@ -4,19 +4,17 @@
             <img src="./../assets/img/loading-boat.gif">
             <h2>Carregando</h2>
         </div>
-
-        <div class="error" v-if="sorry">
-            <img src="./../assets/img/fudeu.jpg">
-        </div>
-
-        <router-link v-if="!loading" v-for="article in articles" :key="article.url" :to="'/article/' + article.id">
-            <article>
-                <div class="cover">
-                    <img :src="article.cover || caravela.cover">
-                </div>
-                <div class="title"> {{ article.content.substring(0, article.content.indexOf('=')) }} </div>
-            </article>
-        </router-link>
+        <paginate name="articles" :per="9" :list="articles" class="articles">
+            <router-link v-if="!loading" v-for="article in paginated('articles')" :key="article.url" :to="'/article/' + article.id">
+                <article>
+                    <div class="cover">
+                        <img :src="article.cover || caravela.cover">
+                    </div>
+                    <div class="title"> {{ article.content.substring(0, article.content.indexOf('=')) }} </div>
+                </article>
+            </router-link>
+        </paginate>
+        <paginate-links :show-step-links="true" :async="true" for="articles"></paginate-links>
     </div>
 </template>
 
@@ -41,7 +39,8 @@ interface ArticleListData {
         cover: string
     },
     loading: boolean,
-    sorry: boolean
+    sorry: boolean,
+    paginate: string[]
 }
 
 export default Vue.extend({
@@ -62,7 +61,8 @@ export default Vue.extend({
                 cover: ''
             },
             loading: false,
-            sorry: false
+            sorry: false,
+            paginate: ['articles']
         } 
         return auxData
     },
@@ -72,13 +72,15 @@ export default Vue.extend({
                 this.loading = true
                 const request = await Axios.get('http://localhost:3000/posts')
                 this.articles = await request.data
+                
                 for (const article of this.articles) {
                     article.content = atob(article.content)
                 }
+
                 this.loading = false
                 this.sorry = false
             } catch (error) {
-                this.loading = false
+                this.loading = true
                 this.sorry = true
                 setTimeout(this.getArticles, 3000)
             }
