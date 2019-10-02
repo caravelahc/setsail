@@ -19,24 +19,27 @@
             <h2>Carregando</h2>
         </div>
 
-        <div class="projeto" v-for="projeto in projetos" :key="projeto.title" v-if="projeto.status">
-            <div class="showcase">
-                <div class="showcase-image">
-                    <a target="_blank" :href="projeto.assignee.html_url">
-                        <img :src="projeto.assignee.avatar_url">
-                    </a>
-                </div>
-            </div>
-            <div class="description">
-                <h2>{{projeto.title}}</h2>
-                <div class="labels">
-                    <div v-for="label in projeto.labels" class="label" :key="label.name">
-                        <div class="label-title" :style="'background: #' + label.color">{{label.name}}</div>
+        <paginate name="projects" :per="5" :list="projetos" class="projects">
+            <div class="projeto" v-for="projeto in paginated('projects')" :key="projeto.name" v-if="projeto.status">
+                <div class="showcase">
+                    <div class="showcase-image">
+                        <a target="_blank" :href="projeto.assignee.html_url">
+                            <img :src="projeto.assignee.avatar_url">
+                        </a>
                     </div>
                 </div>
-                <p v-html="projeto.body"></p>
+                <div class="description">
+                    <h2>{{projeto.title}}</h2>
+                    <div class="labels">
+                        <div v-for="label in projeto.labels" class="label" :key="label.name">
+                            <div class="label-title" :style="'background: #' + label.color">{{label.name}}</div>
+                        </div>
+                    </div>
+                    <p v-html="projeto.body"></p>
+                </div>
             </div>
-        </div>
+        </paginate>
+        <paginate-links :show-step-links="true" :async="true" for="projects" @change="paginateChange()"></paginate-links>
     </div>
 </template>
 
@@ -60,7 +63,8 @@ export default {
             labels: [],
             activeLabels: [],
             readme: '',
-            sorry: false
+            sorry: false,
+            paginate: ['projects']
         }
     },
     methods:{
@@ -143,6 +147,10 @@ export default {
         async getReadme() {
             const request = await Axios.get("https://api.github.com/repos/caravelahc/projetos/readme")
             this.readme = await Converter.makeHtml(b64DecodeUnicode(request.data.content))
+        },
+        paginateChange() {
+            const el = document.querySelector('ul.projects')
+            window.scrollTo(0, el.offsetTop - 100)
         }
     },
     created() {

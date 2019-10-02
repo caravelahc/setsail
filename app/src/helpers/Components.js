@@ -10,7 +10,7 @@ import Sidemenu from '@/components/Sidemenu.vue'
 import Article from '@/components/Article.vue'
 import ArticleList from '@/components/ArticleList.vue'
 import Comments from '@/components/Comment.vue'
-import Paginate from 'vuejs-paginate'
+import Paginate from 'vue-paginate'
 
 import { Slide } from 'vue-burger-menu'
 import { Carousel, Slide as SlideCarousel } from 'vue-carousel'
@@ -28,4 +28,5 @@ Vue.component('caravela-projects', Projects)
 Vue.component('caravela-menu', Menu)
 Vue.component('slide-menu', Slide)
 Vue.component('sidemenu-vue', Sidemenu)
-Vue.component('paginate', Paginate)
+
+Vue.use(Paginate)
