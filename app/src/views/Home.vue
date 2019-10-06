@@ -20,6 +20,9 @@ import Vue from 'vue'
 import Axios from 'axios'
 
 export default Vue.extend({
+    created() {
+        document.title = 'Home - Caravela Hacker Club'
+    },
     data() {
         return {
             slidePics: []
@@ -71,7 +74,7 @@ export default Vue.extend({
     },
     mounted() {
         this.slidePics = this.getSlides()
-    
+
         window.addEventListener('resize', () => {
             this.slidePics = this.getSlides()
         })
