@@ -1,8 +1,3 @@
-* {
-    scroll-behavior: smooth;
-    font-family: Zilla Slab;
-}
-
 main{
     flex-direction: column;
 }
@@ -19,7 +14,6 @@ div.steps{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    font-family: Ubuntu;
     margin-top: 50px !important;
     margin-bottom: 50px !important;
 }
@@ -62,7 +56,7 @@ div.about{
 @media (max-aspect-ratio: 1/1) {
     div.about{
         width: 100%;
-    }      
+    }
 }
 
 div.header{
@@ -96,7 +90,7 @@ div#terminalWindow{
     }
 
     @media (max-aspect-ratio: 1/1) {
-        min-height: unset;    
+        min-height: unset;
     }
 }
 
@@ -120,7 +114,7 @@ span.cmd{
     font-family: Zilla Slab !important;
     color: $primary-color !important;
     text-shadow:
-    -1px -1px 0 #000,  
+    -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;

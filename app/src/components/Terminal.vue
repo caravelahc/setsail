@@ -245,15 +245,15 @@
     max-height: 580px;
 }
 .terminal .terminal-window {
-    padding-top: 50px;
     background-color: rgb(3, 9, 36);
-    min-height: 140px;
-    padding: 20px;
-    font-weight: normal;
-    font-family: Monaco, Menlo, Consolas, monospace;
     color: #fff;
+    font-family: Mono, Monaco, Menlo, Consolas, monospace;
+    font-weight: normal;
+    min-height: 140px;
+    padding-top: 50px;
+    padding: 20px;
+
     pre {
-        font-family: Monaco, Menlo, Consolas, monospace;
         white-space: pre-wrap;
     }
     p {
@@ -269,7 +269,7 @@
         }
         .warning {
             padding: 2px 3px;
-            background: #f39c12; // https://github.com/Mayccoll/Gogh/blob/master/content/themes.md #Flat
+            background: #f39c12; /* https://github.com/Mayccoll/Gogh/blob/master/content/themes.md #Flat */
         }
         .success {
             padding: 2px 3px;
